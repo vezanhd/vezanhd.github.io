@@ -1,881 +1,1172 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Vezan Hidayatullah | Data Analyst & AI Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    :root {
-      --bg: #0d1117;
-      --bg2: #161b22;
-      --bg3: #1c2128;
-      --border: #30363d;
-      --blue: #58a6ff;
-      --green: #3fb950;
-      --purple: #bc8cff;
-      --orange: #d29922;
-      --teal: #39d353;
-      --red: #f85149;
-      --cyan: #76e3ea;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --card: #161b22;
+
+    :root{
+      --bg:#0d1117;
+      --bg2:#161b22;
+      --bg3:#1c2128;
+
+      --border:#30363d;
+
+      --blue:#58a6ff;
+      --green:#3fb950;
+      --purple:#bc8cff;
+      --orange:#d29922;
+      --cyan:#76e3ea;
+
+      --text:#e6edf3;
+      --muted:#8b949e;
+
+      --card:#161b22;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html{
+      scroll-behavior:smooth;
+    }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
     }
 
     /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
 
-    /* ── NAVBAR ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(13,17,23,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
+    ::-webkit-scrollbar{
+      width:6px;
     }
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800; font-size: 18px;
-      color: var(--blue);
-      letter-spacing: 1px;
-    }
-    .nav-links { display: flex; gap: 28px; }
-    .nav-links a {
-      font-size: 13px; color: var(--muted); text-decoration: none;
-      font-weight: 500; letter-spacing: 0.5px;
-      transition: color 0.2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 1px; background: var(--blue);
-      transition: width 0.2s;
-    }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-links a:hover::after { width: 100%; }
 
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 80px 40px;
+    ::-webkit-scrollbar-track{
+      background:var(--bg);
     }
-    .hero-grid {
-      position: absolute; inset: 0;
+
+    ::-webkit-scrollbar-thumb{
+      background:var(--border);
+      border-radius:3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover{
+      background:var(--blue);
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+
+      background:rgba(13,17,23,0.92);
+      backdrop-filter:blur(12px);
+
+      border-bottom:1px solid var(--border);
+
+      padding:0 40px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      height:60px;
+    }
+
+    .nav-logo{
+      font-family:'Syne',sans-serif;
+      font-weight:800;
+      font-size:18px;
+
+      color:var(--blue);
+      letter-spacing:1px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+    }
+
+    .nav-links a{
+      font-size:13px;
+      color:var(--muted);
+
+      text-decoration:none;
+      font-weight:500;
+
+      position:relative;
+      transition:0.2s;
+    }
+
+    .nav-links a::after{
+      content:'';
+
+      position:absolute;
+      left:0;
+      bottom:-5px;
+
+      width:0;
+      height:1px;
+
+      background:var(--blue);
+
+      transition:0.2s;
+    }
+
+    .nav-links a:hover{
+      color:var(--blue);
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    /* HERO */
+
+    #home{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+
+      padding:80px 40px;
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      position:absolute;
+      inset:0;
+
       background-image:
         linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.15;
-    }
-    .hero-glow {
-      position: absolute; top: 20%; left: 30%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center;
-      position: relative; z-index: 1;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(88,166,255,0.1);
-      border: 1px solid rgba(88,166,255,0.3);
-      color: var(--blue); font-size: 12px; font-weight: 600;
-      padding: 6px 14px; border-radius: 20px;
-      letter-spacing: 1px; text-transform: uppercase;
-      margin-bottom: 20px;
-      animation: fadeInUp 0.6s ease both;
-    }
-    .hero-badge::before {
-      content: ''; width: 6px; height: 6px;
-      background: var(--green); border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 56px; font-weight: 800;
-      line-height: 1.1; margin-bottom: 16px;
-      animation: fadeInUp 0.6s ease 0.1s both;
-    }
-    .hero-name span { color: var(--blue); }
-    .hero-role {
-      font-size: 18px; color: var(--muted);
-      margin-bottom: 24px; font-weight: 400;
-      animation: fadeInUp 0.6s ease 0.2s both;
-    }
-    .hero-desc {
-      font-size: 15px; color: var(--muted);
-      line-height: 1.8; margin-bottom: 36px; max-width: 480px;
-      animation: fadeInUp 0.6s ease 0.3s both;
-    }
-    .hero-buttons {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      animation: fadeInUp 0.6s ease 0.4s both;
-    }
-    .btn-primary {
-      background: var(--blue); color: #000;
-      padding: 12px 24px; border-radius: 8px;
-      font-weight: 600; font-size: 14px;
-      text-decoration: none; display: flex; align-items: center; gap: 8px;
-      transition: all 0.2s;
-    }
-    .btn-primary:hover { background: #79b8ff; transform: translateY(-2px); }
-    .btn-outline {
-      border: 1px solid var(--border); color: var(--text);
-      padding: 12px 24px; border-radius: 8px;
-      font-weight: 500; font-size: 14px;
-      text-decoration: none; display: flex; align-items: center; gap: 8px;
-      transition: all 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+        linear-gradient(90deg,var(--border) 1px, transparent 1px);
 
-    .hero-photo-wrap {
-      display: flex; justify-content: center; align-items: center;
-      animation: fadeInUp 0.6s ease 0.2s both;
-    }
-    .hero-photo-frame {
-      position: relative; width: 300px; height: 300px;
-    }
-    .hero-photo-frame::before {
-      content: ''; position: absolute;
-      inset: -2px; border-radius: 20px;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      z-index: -1;
-    }
-    .hero-photo-frame img {
-      width: 100%; height: 100%; object-fit: cover;
-      border-radius: 18px; display: block;
-    }
-    .hero-stats {
-      display: flex; gap: 24px; margin-top: 32px;
-      animation: fadeInUp 0.6s ease 0.5s both;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 28px; font-weight: 800; color: var(--blue);
-    }
-    .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+      background-size:60px 60px;
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      opacity:0.15;
     }
 
-    /* ── SECTIONS ── */
-    section { padding: 80px 40px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-header { margin-bottom: 48px; }
-    .section-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px; color: var(--blue);
-      letter-spacing: 2px; text-transform: uppercase;
-      margin-bottom: 8px; display: block;
-    }
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 36px; font-weight: 800;
-      line-height: 1.2;
+    .hero-glow{
+      position:absolute;
+
+      width:500px;
+      height:500px;
+
+      top:20%;
+      left:30%;
+
+      background:
+        radial-gradient(circle,
+        rgba(88,166,255,0.08) 0%,
+        transparent 70%);
     }
 
-    /* ── ABOUT ── */
-    #about { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    .about-text { font-size: 15px; color: var(--muted); line-height: 1.9; }
-    .about-text p { margin-bottom: 16px; }
-    .about-highlights { display: flex; flex-direction: column; gap: 12px; }
-    .highlight-item {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 10px; padding: 16px 20px;
-      display: flex; align-items: center; gap: 16px;
-      transition: border-color 0.2s;
-    }
-    .highlight-item:hover { border-color: var(--blue); }
-    .highlight-icon { font-size: 22px; width: 40px; text-align: center; }
-    .highlight-label { font-size: 13px; color: var(--muted); }
-    .highlight-value { font-size: 15px; font-weight: 600; color: var(--text); }
+    .hero-content{
+      width:100%;
+      max-width:1100px;
+      margin:auto;
 
-    /* ── SKILLS ── */
-    #skills { background: var(--bg); }
-    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .skill-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .skill-card:hover { border-color: var(--blue); transform: translateY(-2px); }
-    .skill-card-title {
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; margin-bottom: 16px;
-      padding-bottom: 12px; border-bottom: 1px solid var(--border);
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      font-size: 12px; font-weight: 500;
-      padding: 5px 12px; border-radius: 6px;
-      border: 1px solid;
-    }
-    .tag-blue { background: rgba(88,166,255,0.1); color: var(--blue); border-color: rgba(88,166,255,0.3); }
-    .tag-green { background: rgba(63,185,80,0.1); color: var(--green); border-color: rgba(63,185,80,0.3); }
-    .tag-purple { background: rgba(188,140,255,0.1); color: var(--purple); border-color: rgba(188,140,255,0.3); }
-    .tag-orange { background: rgba(210,153,34,0.1); color: var(--orange); border-color: rgba(210,153,34,0.3); }
-    .tag-muted { background: rgba(139,148,158,0.1); color: var(--muted); border-color: rgba(139,148,158,0.3); }
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
 
-    /* ── PROJECTS ── */
-    #projects { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .projects-list { display: flex; flex-direction: column; gap: 16px; }
-    .pcard {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden;
-      display: grid; grid-template-columns: 6px 1fr;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none; color: inherit;
-    }
-    .pcard:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
-    .pcard-accent { width: 6px; }
-    .pcard-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 0; }
-    .pcard-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
-    .pcard-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; }
-    .pcard-meta { font-size: 11px; color: var(--muted); white-space: nowrap; margin-top: 3px; flex-shrink: 0; font-family: 'Space Mono', monospace; }
-    .pcard-desc { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 16px; margin-top: 8px; }
-    .pcard-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .pcard-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .pcard-links { display: flex; gap: 12px; flex-shrink: 0; }
-    .pcard-link {
-      font-size: 12px; font-weight: 600;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
-      padding: 5px 12px; border-radius: 6px; border: 1px solid;
-      transition: all 0.2s; white-space: nowrap;
+      align-items:center;
+
+      position:relative;
+      z-index:1;
     }
 
-    /* ── CERTIFICATIONS ── */
-    #certifications { background: var(--bg); }
-    .cert-list { display: flex; flex-direction: column; gap: 12px; }
-    .cert-item {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 20px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: border-color 0.2s;
-    }
-    .cert-item:hover { border-color: var(--blue); }
-    .cert-left { display: flex; align-items: center; gap: 16px; }
-    .cert-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; flex-shrink: 0;
-    }
-    .cert-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
-    .cert-org { font-size: 12px; color: var(--muted); }
-    .cert-date {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px; color: var(--muted);
-      background: var(--bg3); padding: 4px 10px; border-radius: 6px;
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      background:rgba(88,166,255,0.1);
+      border:1px solid rgba(88,166,255,0.3);
+
+      color:var(--blue);
+
+      font-size:12px;
+      font-weight:600;
+
+      padding:6px 14px;
+      border-radius:20px;
+
+      margin-bottom:20px;
     }
 
-    /* ── EXPERIENCE ── */
-    #experience { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .timeline { position: relative; padding-left: 32px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px; background: linear-gradient(to bottom, var(--blue), var(--purple));
-      border-radius: 1px;
-    }
-    .timeline-item { position: relative; margin-bottom: 36px; }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -38px; top: 4px;
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--blue); border: 2px solid var(--bg);
-    }
-    .timeline-date { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
-    .timeline-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .timeline-company { font-size: 14px; color: var(--blue); margin-bottom: 12px; }
-    .timeline-list { list-style: none; }
-    .timeline-list li {
-      font-size: 13px; color: var(--muted); line-height: 1.7;
-      padding-left: 16px; position: relative; margin-bottom: 4px;
-    }
-    .timeline-list li::before {
-      content: '▸'; position: absolute; left: 0; color: var(--blue); font-size: 10px;
+    .hero-badge::before{
+      content:'';
+
+      width:6px;
+      height:6px;
+
+      border-radius:50%;
+
+      background:var(--green);
     }
 
-    /* ── EDUCATION ── */
-    #education { background: var(--bg); }
-    .edu-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 28px 32px;
-      display: flex; gap: 24px; align-items: flex-start;
-      border-left: 3px solid var(--blue);
-    }
-    .edu-icon { font-size: 32px; margin-top: 4px; }
-    .edu-degree { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-    .edu-school { font-size: 14px; color: var(--blue); margin-bottom: 6px; }
-    .edu-period { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 12px; }
-    .edu-gpa {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.3);
-      color: var(--green); font-size: 13px; font-weight: 600;
-      padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;
-    }
-    .edu-courses { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .hero-name{
+      font-family:'Syne',sans-serif;
+      font-size:56px;
+      font-weight:800;
+      line-height:1.1;
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg2); border-top: 1px solid var(--border);
-      padding: 60px 40px; text-align: center;
+      margin-bottom:16px;
     }
-    .footer-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 32px; font-weight: 800; margin-bottom: 8px;
-    }
-    .footer-sub { font-size: 15px; color: var(--muted); margin-bottom: 32px; }
-    .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 40px; }
-    .footer-link {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--bg3); border: 1px solid var(--border);
-      color: var(--text); text-decoration: none;
-      padding: 10px 20px; border-radius: 8px;
-      font-size: 13px; font-weight: 500;
-      transition: all 0.2s;
-    }
-    .footer-link:hover { border-color: var(--blue); color: var(--blue); }
-    .footer-copy { font-size: 12px; color: var(--muted); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      section { padding: 60px 20px; }
-      #home { padding: 60px 20px; }
-      .hero-content { grid-template-columns: 1fr; }
-      .hero-photo-wrap { display: none; }
-      .hero-name { font-size: 36px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
+    .hero-name span{
+      color:var(--blue);
     }
+
+    .hero-role{
+      font-size:18px;
+      color:var(--muted);
+
+      margin-bottom:24px;
+    }
+
+    .hero-desc{
+      font-size:15px;
+      color:var(--muted);
+
+      line-height:1.9;
+
+      margin-bottom:36px;
+
+      max-width:500px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary,
+    .btn-outline{
+      text-decoration:none;
+
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:12px 24px;
+      border-radius:8px;
+
+      font-size:14px;
+
+      transition:0.2s;
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      color:#000;
+      font-weight:700;
+    }
+
+    .btn-outline{
+      border:1px solid var(--border);
+      color:var(--text);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-outline:hover{
+      border-color:var(--blue);
+      color:var(--blue);
+    }
+
+    .hero-photo-wrap{
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-photo-frame{
+      width:300px;
+      height:300px;
+
+      position:relative;
+    }
+
+    .hero-photo-frame::before{
+      content:'';
+
+      position:absolute;
+      inset:-2px;
+
+      border-radius:20px;
+
+      background:linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+
+      z-index:-1;
+    }
+
+    .hero-photo-frame img{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      border-radius:18px;
+    }
+
+    .hero-stats{
+      display:flex;
+      gap:24px;
+
+      margin-top:32px;
+    }
+
+    .stat{
+      text-align:center;
+    }
+
+    .stat-num{
+      font-family:'Syne',sans-serif;
+      font-size:28px;
+      font-weight:800;
+
+      color:var(--blue);
+    }
+
+    .stat-label{
+      font-size:11px;
+      color:var(--muted);
+
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:80px 40px;
+    }
+
+    .section-inner{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .section-header{
+      margin-bottom:48px;
+    }
+
+    .section-tag{
+      display:block;
+
+      font-family:'Space Mono',monospace;
+      font-size:11px;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+
+      color:var(--blue);
+
+      margin-bottom:8px;
+    }
+
+    .section-title{
+      font-family:'Syne',sans-serif;
+      font-size:36px;
+      font-weight:800;
+    }
+
+    /* ABOUT */
+
+    #about{
+      background:var(--bg2);
+
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:48px;
+    }
+
+    .about-text{
+      color:var(--muted);
+      line-height:1.9;
+      font-size:15px;
+    }
+
+    .about-text p{
+      margin-bottom:16px;
+    }
+
+    .about-highlights{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .highlight-item{
+      display:flex;
+      align-items:center;
+      gap:16px;
+
+      background:var(--bg3);
+
+      border:1px solid var(--border);
+      border-radius:10px;
+
+      padding:16px 20px;
+
+      transition:0.2s;
+    }
+
+    .highlight-item:hover{
+      border-color:var(--blue);
+    }
+
+    .highlight-icon{
+      font-size:22px;
+      width:40px;
+      text-align:center;
+    }
+
+    .highlight-label{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .highlight-value{
+      font-size:15px;
+      font-weight:600;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .skill-card{
+      background:var(--card);
+
+      border:1px solid var(--border);
+      border-radius:12px;
+
+      padding:24px;
+
+      transition:0.2s;
+    }
+
+    .skill-card:hover{
+      border-color:var(--blue);
+      transform:translateY(-2px);
+    }
+
+    .skill-card-title{
+      font-size:11px;
+      font-weight:700;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+
+      margin-bottom:16px;
+      padding-bottom:12px;
+
+      border-bottom:1px solid var(--border);
+    }
+
+    .skill-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .tag{
+      padding:5px 12px;
+      border-radius:6px;
+      border:1px solid;
+
+      font-size:12px;
+      font-weight:500;
+    }
+
+    .tag-blue{
+      background:rgba(88,166,255,0.1);
+      color:var(--blue);
+      border-color:rgba(88,166,255,0.3);
+    }
+
+    .tag-green{
+      background:rgba(63,185,80,0.1);
+      color:var(--green);
+      border-color:rgba(63,185,80,0.3);
+    }
+
+    .tag-purple{
+      background:rgba(188,140,255,0.1);
+      color:var(--purple);
+      border-color:rgba(188,140,255,0.3);
+    }
+
+    .tag-orange{
+      background:rgba(210,153,34,0.1);
+      color:var(--orange);
+      border-color:rgba(210,153,34,0.3);
+    }
+
+    .tag-muted{
+      background:rgba(139,148,158,0.1);
+      color:var(--muted);
+      border-color:rgba(139,148,158,0.3);
+    }
+
+    /* PROJECTS */
+
+    #projects{
+      background:var(--bg2);
+
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+
+    .projects-list{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .pcard{
+      background:var(--bg3);
+
+      border:1px solid var(--border);
+      border-radius:12px;
+
+      overflow:hidden;
+
+      display:grid;
+      grid-template-columns:6px 1fr;
+
+      transition:0.2s;
+    }
+
+    .pcard:hover{
+      transform:translateY(-2px);
+
+      box-shadow:0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .pcard-accent{
+      width:6px;
+    }
+
+    .pcard-body{
+      width:100%;
+      min-width:0;
+
+      padding:24px 28px;
+
+      display:flex;
+      flex-direction:column;
+    }
+
+    .pcard-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+
+      gap:16px;
+
+      flex-wrap:wrap;
+    }
+
+    .pcard-title{
+      flex:1;
+      min-width:0;
+
+      font-family:'Syne',sans-serif;
+      font-size:16px;
+      font-weight:700;
+      line-height:1.3;
+    }
+
+    .pcard-meta{
+      font-family:'Space Mono',monospace;
+      font-size:11px;
+      color:var(--muted);
+
+      white-space:nowrap;
+    }
+
+    .pcard-desc{
+      margin-top:10px;
+      margin-bottom:18px;
+
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.8;
+    }
+
+    .pcard-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .pcard-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .pcard-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .pcard-link{
+      text-decoration:none;
+
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+
+      padding:6px 12px;
+      border-radius:6px;
+
+      border:1px solid;
+
+      font-size:12px;
+      font-weight:600;
+
+      transition:0.2s;
+    }
+
+    .pcard-link:hover{
+      transform:translateY(-1px);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:var(--bg2);
+
+      border-top:1px solid var(--border);
+
+      padding:60px 40px;
+
+      text-align:center;
+    }
+
+    .footer-title{
+      font-family:'Syne',sans-serif;
+      font-size:32px;
+      font-weight:800;
+
+      margin-bottom:8px;
+    }
+
+    .footer-sub{
+      color:var(--muted);
+
+      margin-bottom:32px;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+
+      flex-wrap:wrap;
+
+      margin-bottom:40px;
+    }
+
+    .footer-link{
+      display:flex;
+      align-items:center;
+      gap:8px;
+
+      background:var(--bg3);
+
+      border:1px solid var(--border);
+      border-radius:8px;
+
+      padding:10px 20px;
+
+      color:var(--text);
+      text-decoration:none;
+
+      font-size:13px;
+      font-weight:500;
+
+      transition:0.2s;
+    }
+
+    .footer-link:hover{
+      border-color:var(--blue);
+      color:var(--blue);
+    }
+
+    .footer-copy{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      nav{
+        padding:0 20px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      section{
+        padding:60px 20px;
+      }
+
+      #home{
+        padding:60px 20px;
+      }
+
+      .hero-content{
+        grid-template-columns:1fr;
+      }
+
+      .hero-photo-wrap{
+        display:none;
+      }
+
+      .hero-name{
+        font-size:40px;
+      }
+
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .skills-grid{
+        grid-template-columns:1fr;
+      }
+
+      .pcard-top{
+        flex-direction:column;
+      }
+
+      .pcard-meta{
+        white-space:normal;
+      }
+
+      .pcard-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
+
   <nav>
     <div class="nav-logo">VH.</div>
+
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
     </div>
   </nav>
 
   <!-- HERO -->
+
   <section id="home">
+
     <div class="hero-grid"></div>
     <div class="hero-glow"></div>
+
     <div class="hero-content">
+
       <div>
-        <div class="hero-badge">Available for Work</div>
-        <h1 class="hero-name">Vezan<br><span>Hidayatullah</span></h1>
-        <p class="hero-role">Data Analyst &amp; AI Engineer</p>
-        <p class="hero-desc">
-          Fresh graduate Teknik Informatika yang passionate di bidang Data Analytics dan Machine Learning.
-          Terampil mengolah data menjadi insight yang bernilai menggunakan SQL, Python, dan BI Tools.
-        </p>
-        <div class="hero-buttons">
-          <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank" class="btn-primary">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/vezanhd" target="_blank" class="btn-outline">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" target="_blank" class="btn-outline">
-            📄 Download CV
-          </a>
+
+        <div class="hero-badge">
+          Available for Work
         </div>
+
+        <h1 class="hero-name">
+          Vezan <br>
+          <span>Hidayatullah</span>
+        </h1>
+
+        <p class="hero-role">
+          Data Analyst & AI Engineer
+        </p>
+
+        <p class="hero-desc">
+          Fresh graduate Teknik Informatika yang passionate
+          di bidang Data Analytics dan Machine Learning.
+          Terampil mengolah data menjadi insight menggunakan
+          SQL, Python, Tableau, dan Power BI.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="https://www.linkedin.com/in/vezanhidayatullah"
+            target="_blank"
+            class="btn-primary">
+
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+
+          <a href="https://github.com/vezanhd"
+            target="_blank"
+            class="btn-outline">
+
+            <i class="fab fa-github"></i>
+            GitHub
+          </a>
+
+        </div>
+
         <div class="hero-stats">
+
           <div class="stat">
             <div class="stat-num">3.77</div>
             <div class="stat-label">IPK</div>
           </div>
+
           <div class="stat">
             <div class="stat-num">6+</div>
             <div class="stat-label">Proyek</div>
           </div>
+
           <div class="stat">
             <div class="stat-num">3+</div>
             <div class="stat-label">Sertifikasi</div>
           </div>
-          <div class="stat">
-            <div class="stat-num">85%</div>
-            <div class="stat-label">Best Accuracy</div>
-          </div>
+
         </div>
+
       </div>
+
       <div class="hero-photo-wrap">
+
         <div class="hero-photo-frame">
-          <img src="foto-profil.jpg" alt="Vezan Hidayatullah">
+          <img src="foto-profil.jpg" alt="Foto Profil">
         </div>
+
       </div>
+
     </div>
+
   </section>
 
   <!-- ABOUT -->
+
   <section id="about">
+
     <div class="section-inner">
+
       <div class="section-header">
         <span class="section-tag">// about me</span>
         <h2 class="section-title">Tentang Saya</h2>
       </div>
+
       <div class="about-grid">
+
         <div class="about-text">
+
           <p>
-            Lulusan Teknik Informatika Universitas Lampung dengan IPK 3.77. Saya memiliki passion kuat di bidang
-            Data Analytics dan Machine Learning — dari membangun model klasifikasi deep learning hingga
-            merancang dashboard BI yang actionable.
+            Lulusan Teknik Informatika Universitas Lampung
+            dengan IPK 3.77.
           </p>
+
           <p>
-            Terampil dalam pengolahan data end-to-end: dari data cleaning, eksplorasi, pemodelan,
-            hingga visualisasi menggunakan tools seperti SQL, Python, Tableau, dan Power BI.
+            Memiliki passion kuat di bidang Data Analytics,
+            Business Intelligence, dan Machine Learning.
           </p>
+
           <p>
-            Aktif memanfaatkan AI tools dalam workflow sehari-hari untuk meningkatkan efisiensi dan
-            akurasi analisis. Bersedia relokasi ke seluruh wilayah Indonesia.
+            Terampil dalam pengolahan data end-to-end:
+            data cleaning, eksplorasi, visualisasi,
+            hingga machine learning modeling.
           </p>
+
         </div>
+
         <div class="about-highlights">
+
           <div class="highlight-item">
             <div class="highlight-icon">🎓</div>
+
             <div>
               <div class="highlight-label">Pendidikan</div>
-              <div class="highlight-value">S1 Teknik Informatika — Unila</div>
+              <div class="highlight-value">
+                S1 Teknik Informatika — Unila
+              </div>
             </div>
           </div>
+
           <div class="highlight-item">
             <div class="highlight-icon">📍</div>
+
             <div>
               <div class="highlight-label">Lokasi</div>
-              <div class="highlight-value">Padang, Sumatera Barat</div>
+              <div class="highlight-value">
+                Padang, Sumatera Barat
+              </div>
             </div>
           </div>
+
           <div class="highlight-item">
             <div class="highlight-icon">✈️</div>
+
             <div>
               <div class="highlight-label">Relokasi</div>
-              <div class="highlight-value">Bersedia ke seluruh Indonesia</div>
+              <div class="highlight-value">
+                Bersedia seluruh Indonesia
+              </div>
             </div>
           </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">📧</div>
-            <div>
-              <div class="highlight-label">Email</div>
-              <div class="highlight-value">hidyatullahvezan@gmail.com</div>
-            </div>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">🌐</div>
-            <div>
-              <div class="highlight-label">Bahasa</div>
-              <div class="highlight-value">Indonesia (Native) · English (Basic)</div>
-            </div>
-          </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
   <!-- SKILLS -->
+
   <section id="skills">
+
     <div class="section-inner">
+
       <div class="section-header">
-        <span class="section-tag">// technical skills</span>
+        <span class="section-tag">// skills</span>
         <h2 class="section-title">Keterampilan</h2>
       </div>
+
       <div class="skills-grid">
+
         <div class="skill-card">
-          <div class="skill-card-title" style="color: var(--blue);">Languages</div>
-          <div class="skill-tags">
-            <span class="tag tag-blue">SQL (PostgreSQL)</span>
-            <span class="tag tag-blue">SQL (Oracle)</span>
-            <span class="tag tag-blue">Python</span>
+
+          <div class="skill-card-title"
+            style="color:var(--blue)">
+            Languages
           </div>
+
+          <div class="skill-tags">
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-blue">SQL</span>
+            <span class="tag tag-blue">PostgreSQL</span>
+          </div>
+
         </div>
+
         <div class="skill-card">
-          <div class="skill-card-title" style="color: var(--green);">Libraries & Frameworks</div>
+
+          <div class="skill-card-title"
+            style="color:var(--green)">
+            Data Analytics
+          </div>
+
           <div class="skill-tags">
             <span class="tag tag-green">Pandas</span>
             <span class="tag tag-green">NumPy</span>
-            <span class="tag tag-green">Scikit-learn</span>
             <span class="tag tag-green">Matplotlib</span>
-            <span class="tag tag-green">TensorFlow/Keras</span>
-            <span class="tag tag-green">Flask</span>
+            <span class="tag tag-green">EDA</span>
           </div>
+
         </div>
+
         <div class="skill-card">
-          <div class="skill-card-title" style="color: var(--orange);">BI & Visualization Tools</div>
+
+          <div class="skill-card-title"
+            style="color:var(--purple)">
+            Machine Learning
+          </div>
+
+          <div class="skill-tags">
+            <span class="tag tag-purple">Scikit-Learn</span>
+            <span class="tag tag-purple">TensorFlow</span>
+            <span class="tag tag-purple">Keras</span>
+          </div>
+
+        </div>
+
+        <div class="skill-card">
+
+          <div class="skill-card-title"
+            style="color:var(--orange)">
+            BI Tools
+          </div>
+
           <div class="skill-tags">
             <span class="tag tag-orange">Tableau</span>
             <span class="tag tag-orange">Power BI</span>
-            <span class="tag tag-orange">DAX</span>
-            <span class="tag tag-orange">Microsoft Excel</span>
-            <span class="tag tag-orange">Google Sheets</span>
+            <span class="tag tag-orange">Excel</span>
           </div>
+
         </div>
-        <div class="skill-card">
-          <div class="skill-card-title" style="color: var(--muted);">Development & Others</div>
-          <div class="skill-tags">
-            <span class="tag tag-muted">Google Colab</span>
-            <span class="tag tag-muted">VS Code</span>
-            <span class="tag tag-muted">Microsoft Office</span>
-            <span class="tag tag-muted">Google Workspace</span>
-            <span class="tag tag-muted">Canva</span>
-          </div>
-        </div>
+
       </div>
+
     </div>
+
   </section>
 
   <!-- PROJECTS -->
+
   <section id="projects">
+
     <div class="section-inner">
+
       <div class="section-header">
         <span class="section-tag">// featured projects</span>
         <h2 class="section-title">Proyek Unggulan</h2>
       </div>
+
       <div class="projects-list">
 
-        <!-- 1 -->
-        <a href="https://github.com/vezanhd/klasifikasi-buku-nb-lstm" target="_blank" class="pcard">
-          <div class="pcard-accent" style="background: var(--blue)"></div>
+        <div class="pcard">
+
+          <div class="pcard-accent"
+            style="background:var(--blue)">
+          </div>
+
           <div class="pcard-body">
+
             <div class="pcard-top">
-              <div class="pcard-title">Klasifikasi Kategori Buku (Skripsi)</div>
-              <div class="pcard-meta">Feb – Okt 2025 · Proyek Individu</div>
+
+              <div class="pcard-title">
+                Klasifikasi Kategori Buku (Skripsi)
+              </div>
+
+              <div class="pcard-meta">
+                Feb – Okt 2025 · Individu
+              </div>
+
             </div>
+
             <div class="pcard-desc">
-              Model klasifikasi teks menggunakan <strong>Naive Bayes &amp; LSTM</strong> pada dataset <strong>29.874 data buku</strong>.
-              Membandingkan performa ML klasik vs deep learning. Akurasi terbaik <strong>79,30%</strong>.
+              Model klasifikasi teks menggunakan
+              Naive Bayes & LSTM pada dataset
+              29.874 data buku.
             </div>
+
             <div class="pcard-bottom">
+
               <div class="pcard-tags">
                 <span class="tag tag-blue">Python</span>
                 <span class="tag tag-blue">LSTM</span>
-                <span class="tag tag-blue">Naive Bayes</span>
-                <span class="tag tag-blue">TensorFlow/Keras</span>
                 <span class="tag tag-blue">NLP</span>
               </div>
-              <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--blue);border-color:rgba(88,166,255,0.3);background:rgba(88,166,255,0.08)">
-                  <i class="fab fa-github"></i> GitHub
-                </span>
-              </div>
-            </div>
-          </div>
-        </a>
 
-        <!-- 2 -->
-        <a href="https://github.com/vezanhd/klasifikasi-tanaman-cnn" target="_blank" class="pcard">
-          <div class="pcard-accent" style="background: var(--green)"></div>
-          <div class="pcard-body">
-            <div class="pcard-top">
-              <div class="pcard-title">Klasifikasi Tanaman CNN — Taman Kupu-Kupu Gita Persada</div>
-              <div class="pcard-meta">Mei – Okt 2024 · Tim Penelitian</div>
-            </div>
-            <div class="pcard-desc">
-              Model <strong>CNN (Convolutional Neural Network)</strong> untuk klasifikasi tanaman Uvaria grandiflora
-              dari dataset <strong>400 gambar (4 kelas)</strong>. Akurasi <strong>85%</strong>. Hasil penelitian dipublikasikan dalam jurnal ilmiah.
-            </div>
-            <div class="pcard-bottom">
-              <div class="pcard-tags">
-                <span class="tag tag-green">Python</span>
-                <span class="tag tag-green">CNN</span>
-                <span class="tag tag-green">TensorFlow/Keras</span>
-                <span class="tag tag-green">Computer Vision</span>
-                <span class="tag tag-green">Google Colab</span>
-              </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--green);border-color:rgba(63,185,80,0.3);background:rgba(63,185,80,0.08)">
-                  <i class="fab fa-github"></i> GitHub
-                </span>
-              </div>
-            </div>
-          </div>
-        </a>
 
-        <!-- 3 -->
-        <a href="https://github.com/vezanhd/kapita-selekta-investasi-asing" target="_blank" class="pcard">
-          <div class="pcard-accent" style="background: var(--purple)"></div>
-          <div class="pcard-body">
-            <div class="pcard-top">
-              <div class="pcard-title">Dashboard Analisis Investasi Asing &amp; Ketenagakerjaan Indonesia</div>
-              <div class="pcard-meta">2024 · Ketua Tim</div>
-            </div>
-            <div class="pcard-desc">
-              Dashboard <strong>Tableau</strong> interaktif menganalisis pengaruh investasi asing terhadap pengangguran
-              di Indonesia <strong>2019–2023</strong> berbasis data BPS. Mencakup peta distribusi per provinsi, analisis komparatif, dan time series.
-            </div>
-            <div class="pcard-bottom">
-              <div class="pcard-tags">
-                <span class="tag tag-purple">Tableau</span>
-                <span class="tag tag-purple">Data BPS</span>
-                <span class="tag tag-purple">Excel</span>
-                <span class="tag tag-purple">Geospatial Map</span>
-              </div>
-              <div class="pcard-links">
-                <a href="https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal"
-                   target="_blank" onclick="event.stopPropagation()"
-                   class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)">
-                  🔗 Live Dashboard
+                <a href="https://github.com/vezanhd"
+                  target="_blank"
+                  class="pcard-link"
+
+                  style="
+                  color:var(--blue);
+                  border-color:rgba(88,166,255,0.3);
+                  background:rgba(88,166,255,0.08);
+                  ">
+
+                  <i class="fab fa-github"></i>
+                  GitHub
                 </a>
-                <span class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)">
-                  <i class="fab fa-github"></i> GitHub
-                </span>
-              </div>
-            </div>
-          </div>
-        </a>
 
-        <!-- 4 -->
-        <a href="https://github.com/vezanhd/final-project-data-analyst-kariermu" target="_blank" class="pcard">
-          <div class="pcard-accent" style="background: var(--orange)"></div>
-          <div class="pcard-body">
-            <div class="pcard-top">
-              <div class="pcard-title">Final Project Bootcamp Data Analyst — KarierMu</div>
-              <div class="pcard-meta">Nov – Des 2023 · Team Leader</div>
-            </div>
-            <div class="pcard-desc">
-              Analisis data <strong>8.000+ pengguna</strong> platform pembelajaran menggunakan Python &amp; Tableau
-              sebagai <strong>Team Leader</strong>. End-to-end: data cleaning, EDA, visualisasi, dan presentasi insight kepada audiens.
-            </div>
-            <div class="pcard-bottom">
-              <div class="pcard-tags">
-                <span class="tag tag-orange">Python</span>
-                <span class="tag tag-orange">Tableau</span>
-                <span class="tag tag-orange">Google Colab</span>
-                <span class="tag tag-orange">EDA</span>
               </div>
-              <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
-                  <i class="fab fa-github"></i> GitHub
-                </span>
-              </div>
-            </div>
-          </div>
-        </a>
 
-        <!-- 5 -->
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-tableau" target="_blank" class="pcard">
-          <div class="pcard-accent" style="background: var(--cyan)"></div>
-          <div class="pcard-body">
-            <div class="pcard-top">
-              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Tableau</div>
-              <div class="pcard-meta">2026 · Proyek Individu</div>
             </div>
-            <div class="pcard-desc">
-              Dashboard interaktif analisis penjualan &amp; profitabilitas retail <strong>2023–2024</strong>.
-              Menggunakan <strong>Calculated Field, Action Filter</strong>, dan 2 dashboard terintegrasi (Penjualan + Profitabilitas).
-            </div>
-            <div class="pcard-bottom">
-              <div class="pcard-tags">
-                <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Tableau</span>
-                <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Calculated Field</span>
-                <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Excel</span>
-              </div>
-              <div class="pcard-links">
-                <a href="https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024"
-                   target="_blank" onclick="event.stopPropagation()"
-                   class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)">
-                  🔗 Live Dashboard
-                </a>
-                <span class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)">
-                  <i class="fab fa-github"></i> GitHub
-                </span>
-              </div>
-            </div>
-          </div>
-        </a>
 
-        <!-- 6 -->
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi" target="_blank" class="pcard">
-          <div class="pcard-accent" style="background: var(--orange)"></div>
-          <div class="pcard-body">
-            <div class="pcard-top">
-              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Power BI</div>
-              <div class="pcard-meta">2026 · Proyek Individu</div>
-            </div>
-            <div class="pcard-desc">
-              Dashboard <strong>Power BI</strong> dengan <strong>DAX</strong> untuk kalkulasi Profit Margin % dan Status Profit.
-              2 halaman analisis terintegrasi dengan slicer interaktif untuk filter dinamis.
-            </div>
-            <div class="pcard-bottom">
-              <div class="pcard-tags">
-                <span class="tag tag-orange">Power BI</span>
-                <span class="tag tag-orange">DAX</span>
-                <span class="tag tag-orange">Excel</span>
-              </div>
-              <div class="pcard-links">
-                <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix"
-                   target="_blank" onclick="event.stopPropagation()"
-                   class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
-                  📥 Download .pbix
-                </a>
-                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
-                  <i class="fab fa-github"></i> GitHub
-                </span>
-              </div>
-            </div>
           </div>
-        </a>
+
+        </div>
 
       </div>
+
     </div>
-  </section>
 
-    <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">// certifications</span>
-        <h2 class="section-title">Kursus & Sertifikasi</h2>
-      </div>
-      <div class="cert-list">
-        <div class="cert-item">
-          <div class="cert-left">
-            <div class="cert-icon" style="background: rgba(88,166,255,0.1);">🤖</div>
-            <div>
-              <div class="cert-name">Coding Camp 2026 Progressive: AI Engineer</div>
-              <div class="cert-org">DBS Foundation x Dicoding</div>
-            </div>
-          </div>
-          <div class="cert-date">Feb – Apr 2026</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-left">
-            <div class="cert-icon" style="background: rgba(63,185,80,0.1);">📊</div>
-            <div>
-              <div class="cert-name">Student Bootcamp Independent Study — Data Analyst</div>
-              <div class="cert-org">KarierMu</div>
-            </div>
-          </div>
-          <div class="cert-date">Agu – Des 2023</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-left">
-            <div class="cert-icon" style="background: rgba(210,153,34,0.1);">🗄️</div>
-            <div>
-              <div class="cert-name">Database Design and Programming with SQL</div>
-              <div class="cert-org">Oracle Academy</div>
-            </div>
-          </div>
-          <div class="cert-date">Des 2022</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">// experience</span>
-        <h2 class="section-title">Pengalaman</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">Jul 2024 – Agu 2024</div>
-          <div class="timeline-title">Quality Assurance Intern</div>
-          <div class="timeline-company">Kementerian Komunikasi dan Informatika (Kominfo) · Jakarta</div>
-          <ul class="timeline-list">
-            <li>Melakukan pengujian fitur LMS pada platform Digital Talent menggunakan test case berbasis spreadsheet</li>
-            <li>Mengidentifikasi dan mendokumentasikan bug, serta memberikan rekomendasi perbaikan kepada tim vendor</li>
-            <li>Berkoordinasi langsung dengan tim vendor dalam proses QA dan peningkatan kualitas sistem</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Feb 2023 – Jan 2024</div>
-          <div class="timeline-title">Anggota Sponsorship EEA 2023</div>
-          <div class="timeline-company">Himpunan Mahasiswa Teknik Elektro – Universitas Lampung</div>
-          <ul class="timeline-list">
-            <li>Mengajukan proposal sponsorship ke lebih dari 5 perusahaan</li>
-            <li>Berhasil menjalin kerja sama dengan 2 perusahaan selama event berlangsung</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">// education</span>
-        <h2 class="section-title">Pendidikan</h2>
-      </div>
-      <div class="edu-card">
-        <div class="edu-icon">🎓</div>
-        <div>
-          <div class="edu-degree">Sarjana Teknik Informatika</div>
-          <div class="edu-school">Universitas Lampung · Bandar Lampung</div>
-          <div class="edu-period">Agustus 2021 – Januari 2026</div>
-          <div class="edu-gpa">⭐ IPK 3.77 / 4.00</div>
-          <div class="edu-courses">
-            Mata kuliah relevan: Python, SQL, Data Mining, Machine Learning, Sistem Basis Data, Visualisasi Data
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- FOOTER -->
+
   <footer>
-    <div class="footer-title">Mari Berkolaborasi! 🚀</div>
-    <div class="footer-sub">Terbuka untuk peluang kerja di bidang Data Analytics & AI Engineering</div>
-    <div class="footer-links">
-      <a href="mailto:hidyatullahvezan@gmail.com" class="footer-link">
-        <i class="fas fa-envelope"></i> hidyatullahvezan@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank" class="footer-link">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://github.com/vezanhd" target="_blank" class="footer-link">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" target="_blank" class="footer-link">
-        📄 Download CV
-      </a>
+
+    <div class="footer-title">
+      Mari Berkolaborasi 🚀
     </div>
-    <div class="footer-copy">© 2026 Vezan Hidayatullah · Padang, Sumatera Barat · Bersedia Relokasi</div>
+
+    <div class="footer-sub">
+      Terbuka untuk peluang kerja Data Analytics & AI
+    </div>
+
+    <div class="footer-links">
+
+      <a href="mailto:hidyatullahvezan@gmail.com"
+        class="footer-link">
+
+        <i class="fas fa-envelope"></i>
+        Email
+      </a>
+
+      <a href="https://github.com/vezanhd"
+        target="_blank"
+        class="footer-link">
+
+        <i class="fab fa-github"></i>
+        GitHub
+      </a>
+
+    </div>
+
+    <div class="footer-copy">
+      © 2026 Vezan Hidayatullah
+    </div>
+
   </footer>
 
 </body>
