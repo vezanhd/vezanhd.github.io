@@ -258,7 +258,7 @@
       border-radius: 12px; overflow: hidden;
       display: grid; grid-template-columns: 6px 1fr;
       transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none; color: inherit;
+      cursor: pointer;
     }
     .pcard:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
     .pcard-accent { width: 6px; }
@@ -410,8 +410,8 @@
         <h1 class="hero-name">Vezan<br><span>Hidayatullah</span></h1>
         <p class="hero-role">Data Analyst &amp; ML Engineer</p>
         <p class="hero-desc">
-          Fresh graduate Teknik Informatika yang passionate di bidang Data Analytics dan Machine Learning.
-          Terampil mengolah data menjadi insight yang bernilai menggunakan SQL, Python, dan BI Tools.
+          Fresh graduate Teknik Informatika yang passionate di bidang Data.
+          Terampil mengolah data menjadi insight yang bernilai menggunakan Excel, SQL, Python, dan BI Tools.
         </p>
         <div class="hero-buttons">
           <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank" class="btn-primary">
@@ -420,7 +420,7 @@
           <a href="https://github.com/vezanhd" target="_blank" class="btn-outline">
             <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" target="_blank" class="btn-outline">
+          <a href="https://drive.google.com/file/d/1Zsr7cG7TCGs2rIvCgjt0g4AaPJSU_OC8/view?usp=sharing" target="_blank" class="btn-outline">
             📄 Download CV
           </a>
         </div>
@@ -467,7 +467,7 @@
           </p>
           <p>
             Terampil dalam pengolahan data end-to-end: dari data cleaning, eksplorasi, pemodelan,
-            hingga visualisasi menggunakan tools seperti SQL, Python, Tableau, dan Power BI.
+            hingga visualisasi menggunakan tools seperti SQL, Python, Excel, Tableau, dan Power BI.
           </p>
           <p>
             Aktif memanfaatkan AI tools dalam workflow sehari-hari untuk meningkatkan efisiensi dan
@@ -510,6 +510,59 @@
               <div class="highlight-value">Indonesia (Native) · English (Basic)</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// education</span>
+        <h2 class="section-title">Pendidikan</h2>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Sarjana Teknik Informatika</div>
+          <div class="edu-school">Universitas Lampung · Bandar Lampung</div>
+          <div class="edu-period">Agustus 2021 – Januari 2026</div>
+          <div class="edu-gpa">⭐ IPK 3.77 / 4.00</div>
+          <div class="edu-courses">
+            Mata kuliah relevan: Python, SQL, Data Mining, Machine Learning, Sistem Basis Data, Visualisasi Data
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// experience</span>
+        <h2 class="section-title">Pengalaman</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2024 – Agu 2024</div>
+          <div class="timeline-title">Quality Assurance Intern</div>
+          <div class="timeline-company">Kementerian Komunikasi dan Informatika (Kominfo) · Jakarta</div>
+          <ul class="timeline-list">
+            <li>Melakukan pengujian fitur LMS pada platform Digital Talent menggunakan test case berbasis spreadsheet</li>
+            <li>Mengidentifikasi dan mendokumentasikan bug, serta memberikan rekomendasi perbaikan kepada tim vendor</li>
+            <li>Berkoordinasi langsung dengan tim vendor dalam proses QA dan peningkatan kualitas sistem</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Feb 2023 – Jan 2024</div>
+          <div class="timeline-title">Anggota Sponsorship EEA 2023</div>
+          <div class="timeline-company">Himpunan Mahasiswa Teknik Elektro – Universitas Lampung</div>
+          <ul class="timeline-list">
+            <li>Mengajukan proposal sponsorship ke lebih dari 5 perusahaan</li>
+            <li>Berhasil menjalin kerja sama dengan 2 perusahaan selama event berlangsung</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -576,7 +629,7 @@
       <div class="projects-list">
 
         <!-- 1 -->
-        <a href="https://github.com/vezanhd/klasifikasi-buku-nb-lstm" target="_blank" class="pcard">
+        <div class="pcard" onclick="window.open('https://github.com/vezanhd/klasifikasi-buku-nb-lstm','_blank')">
           <div class="pcard-accent" style="background: var(--blue)"></div>
           <div class="pcard-body">
             <div class="pcard-top">
@@ -596,16 +649,17 @@
                 <span class="tag tag-blue">NLP</span>
               </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--blue);border-color:rgba(88,166,255,0.3);background:rgba(88,166,255,0.08)">
+                <span class="pcard-link" style="color:var(--blue);border-color:rgba(88,166,255,0.3);background:rgba(88,166,255,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/klasifikasi-buku-nb-lstm','_blank')">
                   <i class="fab fa-github"></i> GitHub
                 </span>
               </div>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- 2 -->
-        <a href="https://github.com/vezanhd/klasifikasi-tanaman-cnn" target="_blank" class="pcard">
+        <div class="pcard" onclick="window.open('https://github.com/vezanhd/klasifikasi-tanaman-cnn','_blank')">
           <div class="pcard-accent" style="background: var(--green)"></div>
           <div class="pcard-body">
             <div class="pcard-top">
@@ -625,16 +679,21 @@
                 <span class="tag tag-green">Google Colab</span>
               </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--green);border-color:rgba(63,185,80,0.3);background:rgba(63,185,80,0.08)">
+                <span class="pcard-link" style="color:var(--green);border-color:rgba(63,185,80,0.3);background:rgba(63,185,80,0.08)"
+                  onclick="event.stopPropagation();window.open('https://penerbitgoodwood.com/index.php/jatra/article/view/5012/1419','_blank')">
+                  🔗 Paper Jurnal
+                </span>
+                <span class="pcard-link" style="color:var(--green);border-color:rgba(63,185,80,0.3);background:rgba(63,185,80,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/klasifikasi-tanaman-cnn','_blank')">
                   <i class="fab fa-github"></i> GitHub
                 </span>
               </div>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- 3 -->
-        <a href="https://github.com/vezanhd/kapita-selekta-investasi-asing" target="_blank" class="pcard">
+        <div class="pcard" onclick="window.open('https://github.com/vezanhd/kapita-selekta-investasi-asing','_blank')">
           <div class="pcard-accent" style="background: var(--purple)"></div>
           <div class="pcard-body">
             <div class="pcard-top">
@@ -653,25 +712,25 @@
                 <span class="tag tag-purple">Geospatial Map</span>
               </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)">
+                <span class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)"
+                  onclick="event.stopPropagation();window.open('https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal','_blank')">
+                  🔗 Live Dashboard
+                </span>
+                <span class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/kapita-selekta-investasi-asing','_blank')">
                   <i class="fab fa-github"></i> GitHub
                 </span>
               </div>
             </div>
           </div>
-        </a>
-        <a href="https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal"
-           target="_blank" onclick="event.stopPropagation()"
-           class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)">
-           🔗 Live Dashboard
-        </a>
+        </div>
 
         <!-- 4 -->
-        <a href="https://github.com/vezanhd/final-project-data-analyst-kariermu" target="_blank" class="pcard">
+        <div class="pcard" onclick="window.open('https://github.com/vezanhd/final-project-data-analyst-kariermu','_blank')">
           <div class="pcard-accent" style="background: var(--orange)"></div>
           <div class="pcard-body">
             <div class="pcard-top">
-              <div class="pcard-title">Final Project Bootcamp Data Analyst — KarierMu</div>
+              <div class="pcard-title">Final Project Bootcamp Data Analyst — KarierMu <span style="font-size:10px;background:rgba(139,148,158,0.15);color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:4px;font-family:Space Mono,monospace;font-weight:400;vertical-align:middle;">sample data</span></div>
               <div class="pcard-meta">Nov – Des 2023 · Team Leader</div>
             </div>
             <div class="pcard-desc">
@@ -686,20 +745,21 @@
                 <span class="tag tag-orange">EDA</span>
               </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
+                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/final-project-data-analyst-kariermu','_blank')">
                   <i class="fab fa-github"></i> GitHub
                 </span>
               </div>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- 5 -->
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-tableau" target="_blank" class="pcard">
+        <div class="pcard" onclick="window.open('https://github.com/vezanhd/retail-sales-dashboard-tableau','_blank')">
           <div class="pcard-accent" style="background: var(--cyan)"></div>
           <div class="pcard-body">
             <div class="pcard-top">
-              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Tableau</div>
+              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Tableau <span style="font-size:10px;background:rgba(139,148,158,0.15);color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:4px;font-family:Space Mono,monospace;font-weight:400;vertical-align:middle;">sample data</span></div>
               <div class="pcard-meta">2026 · Proyek Individu</div>
             </div>
             <div class="pcard-desc">
@@ -713,25 +773,25 @@
                 <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Excel</span>
               </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)">
+                <span class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)"
+                  onclick="event.stopPropagation();window.open('https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024','_blank')">
+                  🔗 Live Dashboard
+                </span>
+                <span class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/retail-sales-dashboard-tableau','_blank')">
                   <i class="fab fa-github"></i> GitHub
                 </span>
               </div>
             </div>
           </div>
-        </a>
-        <a href="https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024"
-           target="_blank" onclick="event.stopPropagation()"
-           class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)">
-           🔗 Live Dashboard
-        </a>
+        </div>
 
         <!-- 6 -->
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi" target="_blank" class="pcard">
+        <div class="pcard" onclick="window.open('https://github.com/vezanhd/retail-sales-dashboard-powerbi','_blank')">
           <div class="pcard-accent" style="background: var(--orange)"></div>
           <div class="pcard-body">
             <div class="pcard-top">
-              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Power BI</div>
+              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Power BI <span style="font-size:10px;background:rgba(139,148,158,0.15);color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:4px;font-family:Space Mono,monospace;font-weight:400;vertical-align:middle;">sample data</span></div>
               <div class="pcard-meta">2026 · Proyek Individu</div>
             </div>
             <div class="pcard-desc">
@@ -745,18 +805,18 @@
                 <span class="tag tag-orange">Excel</span>
               </div>
               <div class="pcard-links">
-                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
+                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix','_blank')">
+                  📥 Download .pbix
+                </span>
+                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/retail-sales-dashboard-powerbi','_blank')">
                   <i class="fab fa-github"></i> GitHub
                 </span>
               </div>
             </div>
           </div>
-        </a>
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix"
-           target="_blank" onclick="event.stopPropagation()"
-           class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
-           📥 Download .pbix
-        </a>
+        </div>
 
       </div>
     </div>
@@ -804,59 +864,6 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">// experience</span>
-        <h2 class="section-title">Pengalaman</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">Jul 2024 – Agu 2024</div>
-          <div class="timeline-title">Quality Assurance Intern</div>
-          <div class="timeline-company">Kementerian Komunikasi dan Informatika (Kominfo) · Jakarta</div>
-          <ul class="timeline-list">
-            <li>Melakukan pengujian fitur LMS pada platform Digital Talent menggunakan test case berbasis spreadsheet</li>
-            <li>Mengidentifikasi dan mendokumentasikan bug, serta memberikan rekomendasi perbaikan kepada tim vendor</li>
-            <li>Berkoordinasi langsung dengan tim vendor dalam proses QA dan peningkatan kualitas sistem</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Feb 2023 – Jan 2024</div>
-          <div class="timeline-title">Anggota Sponsorship EEA 2023</div>
-          <div class="timeline-company">Himpunan Mahasiswa Teknik Elektro – Universitas Lampung</div>
-          <ul class="timeline-list">
-            <li>Mengajukan proposal sponsorship ke lebih dari 5 perusahaan</li>
-            <li>Berhasil menjalin kerja sama dengan 2 perusahaan selama event berlangsung</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">// education</span>
-        <h2 class="section-title">Pendidikan</h2>
-      </div>
-      <div class="edu-card">
-        <div class="edu-icon">🎓</div>
-        <div>
-          <div class="edu-degree">Sarjana Teknik Informatika</div>
-          <div class="edu-school">Universitas Lampung · Bandar Lampung</div>
-          <div class="edu-period">Agustus 2021 – Januari 2026</div>
-          <div class="edu-gpa">⭐ IPK 3.77 / 4.00</div>
-          <div class="edu-courses">
-            Mata kuliah relevan: Python, SQL, Data Mining, Machine Learning, Sistem Basis Data, Visualisasi Data
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-title">Mari Berkolaborasi! 🚀</div>
@@ -871,7 +878,7 @@
       <a href="https://github.com/vezanhd" target="_blank" class="footer-link">
         <i class="fab fa-github"></i> GitHub
       </a>
-      <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" target="_blank" class="footer-link">
+      <a href="https://drive.google.com/file/d/1Zsr7cG7TCGs2rIvCgjt0g4AaPJSU_OC8/view?usp=sharing" target="_blank" class="footer-link">
         📄 Download CV
       </a>
     </div>
