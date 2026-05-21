@@ -3,357 +3,801 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vezan Hidayatullah | Data Analyst & ML Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Vezan Hidayatullah | Data Analyst & AI Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #1c2128;
+      --border: #30363d;
+      --blue: #58a6ff;
+      --green: #3fb950;
+      --purple: #bc8cff;
+      --orange: #d29922;
+      --teal: #39d353;
+      --red: #f85149;
+      --cyan: #76e3ea;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --card: #161b22;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
-    .hero-bg { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
-    .project-card { display: flex; flex-direction: column; height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 18px;
+      color: var(--blue);
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      font-weight: 500; letter-spacing: 0.5px;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--blue);
+      transition: width 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 40px;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.15;
+    }
+    .hero-glow {
+      position: absolute; top: 20%; left: 30%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+      width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.3);
+      color: var(--blue); font-size: 12px; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--green); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 56px; font-weight: 800;
+      line-height: 1.1; margin-bottom: 16px;
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+    .hero-name span { color: var(--blue); }
+    .hero-role {
+      font-size: 18px; color: var(--muted);
+      margin-bottom: 24px; font-weight: 400;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+    .hero-desc {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.8; margin-bottom: 36px; max-width: 480px;
+      animation: fadeInUp 0.6s ease 0.3s both;
+    }
+    .hero-buttons {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease 0.4s both;
+    }
+    .btn-primary {
+      background: var(--blue); color: #000;
+      padding: 12px 24px; border-radius: 8px;
+      font-weight: 600; font-size: 14px;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #79b8ff; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+      padding: 12px 24px; border-radius: 8px;
+      font-weight: 500; font-size: 14px;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+
+    .hero-photo-wrap {
+      display: flex; justify-content: center; align-items: center;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+    .hero-photo-frame {
+      position: relative; width: 300px; height: 300px;
+    }
+    .hero-photo-frame::before {
+      content: ''; position: absolute;
+      inset: -2px; border-radius: 20px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      z-index: -1;
+    }
+    .hero-photo-frame img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: 18px; display: block;
+    }
+    .hero-stats {
+      display: flex; gap: 24px; margin-top: 32px;
+      animation: fadeInUp 0.6s ease 0.5s both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px; font-weight: 800; color: var(--blue);
+    }
+    .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 40px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-header { margin-bottom: 48px; }
+    .section-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; color: var(--blue);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 8px; display: block;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px; font-weight: 800;
+      line-height: 1.2;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-text { font-size: 15px; color: var(--muted); line-height: 1.9; }
+    .about-text p { margin-bottom: 16px; }
+    .about-highlights { display: flex; flex-direction: column; gap: 12px; }
+    .highlight-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px;
+      display: flex; align-items: center; gap: 16px;
+      transition: border-color 0.2s;
+    }
+    .highlight-item:hover { border-color: var(--blue); }
+    .highlight-icon { font-size: 22px; width: 40px; text-align: center; }
+    .highlight-label { font-size: 13px; color: var(--muted); }
+    .highlight-value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .skill-card-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 12px; font-weight: 500;
+      padding: 5px 12px; border-radius: 6px;
+      border: 1px solid;
+    }
+    .tag-blue { background: rgba(88,166,255,0.1); color: var(--blue); border-color: rgba(88,166,255,0.3); }
+    .tag-green { background: rgba(63,185,80,0.1); color: var(--green); border-color: rgba(63,185,80,0.3); }
+    .tag-purple { background: rgba(188,140,255,0.1); color: var(--purple); border-color: rgba(188,140,255,0.3); }
+    .tag-orange { background: rgba(210,153,34,0.1); color: var(--orange); border-color: rgba(210,153,34,0.3); }
+    .tag-muted { background: rgba(139,148,158,0.1); color: var(--muted); border-color: rgba(139,148,158,0.3); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .project-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none; color: inherit;
+    }
+    .project-card:hover { transform: translateY(-4px); }
+    .project-card.blue:hover { border-color: var(--blue); }
+    .project-card.green:hover { border-color: var(--green); }
+    .project-card.orange:hover { border-color: var(--orange); }
+    .project-card.purple:hover { border-color: var(--purple); }
+    .project-card.cyan:hover { border-color: var(--cyan); }
+    .project-card.yellow:hover { border-color: var(--orange); }
+
+    .project-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+    .project-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+    .project-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; line-height: 1.3; }
+    .project-meta { font-size: 12px; color: var(--muted); margin-bottom: 12px; margin-left: 22px; }
+    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; margin-left: 22px; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 22px; margin-bottom: 12px; }
+    .project-link {
+      font-size: 12px; font-weight: 600; margin-left: 22px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 10px; }
+
+    /* ── CERTIFICATIONS ── */
+    #certifications { background: var(--bg); }
+    .cert-list { display: flex; flex-direction: column; gap: 12px; }
+    .cert-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+    .cert-item:hover { border-color: var(--blue); }
+    .cert-left { display: flex; align-items: center; gap: 16px; }
+    .cert-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .cert-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+    .cert-org { font-size: 12px; color: var(--muted); }
+    .cert-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; color: var(--muted);
+      background: var(--bg3); padding: 4px 10px; border-radius: 6px;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--blue), var(--purple));
+      border-radius: 1px;
+    }
+    .timeline-item { position: relative; margin-bottom: 36px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -38px; top: 4px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--blue); border: 2px solid var(--bg);
+    }
+    .timeline-date { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .timeline-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .timeline-company { font-size: 14px; color: var(--blue); margin-bottom: 12px; }
+    .timeline-list { list-style: none; }
+    .timeline-list li {
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+      padding-left: 16px; position: relative; margin-bottom: 4px;
+    }
+    .timeline-list li::before {
+      content: '▸'; position: absolute; left: 0; color: var(--blue); font-size: 10px;
+    }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--bg); }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px 32px;
+      display: flex; gap: 24px; align-items: flex-start;
+      border-left: 3px solid var(--blue);
+    }
+    .edu-icon { font-size: 32px; margin-top: 4px; }
+    .edu-degree { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .edu-school { font-size: 14px; color: var(--blue); margin-bottom: 6px; }
+    .edu-period { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+    .edu-gpa {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.3);
+      color: var(--green); font-size: 13px; font-weight: 600;
+      padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;
+    }
+    .edu-courses { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 60px 40px; text-align: center;
+    }
+    .footer-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px; font-weight: 800; margin-bottom: 8px;
+    }
+    .footer-sub { font-size: 15px; color: var(--muted); margin-bottom: 32px; }
+    .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 40px; }
+    .footer-link {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      padding: 10px 20px; border-radius: 8px;
+      font-size: 13px; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .footer-link:hover { border-color: var(--blue); color: var(--blue); }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      section { padding: 60px 20px; }
+      #home { padding: 60px 20px; }
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .hero-name { font-size: 36px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body class="bg-zinc-50 text-zinc-900">
+<body>
 
   <!-- NAVBAR -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">Vezan Hidayatullah</h1>
-      <div class="flex gap-8 text-sm font-medium">
-        <a href="#home" class="hover:text-blue-600 transition">Home</a>
-        <a href="#about" class="hover:text-blue-600 transition">About</a>
-        <a href="#education" class="hover:text-blue-600 transition">Pendidikan</a>
-        <a href="#experience" class="hover:text-blue-600 transition">Pengalaman</a>
-        <a href="#certifications" class="hover:text-blue-600 transition">Sertifikasi</a>
-        <a href="#projects" class="hover:text-blue-600 transition">Proyek</a>
-        <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-      </div>
+  <nav>
+    <div class="nav-logo">VH.</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
     </div>
   </nav>
 
-  <!-- HERO / HOME -->
-  <section id="home" class="hero-bg text-white py-24">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
       <div>
-        <h2 class="text-5xl font-bold mb-4">Halo, saya Vezan Hidayatullah 👋</h2>
-        <p class="text-3xl mb-6">Data Analyst & ML Engineer</p>
-        <p class="text-lg mb-8 max-w-md">
-          Lulusan Teknik Informatika yang passionate di bidang Analisis Data dan Machine Learning. 
+        <div class="hero-badge">Available for Work</div>
+        <h1 class="hero-name">Vezan<br><span>Hidayatullah</span></h1>
+        <p class="hero-role">Data Analyst &amp; AI Engineer</p>
+        <p class="hero-desc">
+          Fresh graduate Teknik Informatika yang passionate di bidang Data Analytics dan Machine Learning.
+          Terampil mengolah data menjadi insight yang bernilai menggunakan SQL, Python, dan BI Tools.
         </p>
-        <div class="flex gap-4">
-          <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank"
-             class="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-blue-100 transition">
+        <div class="hero-buttons">
+          <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank" class="btn-primary">
             <i class="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="mailto:hidyatullahvezan@gmail.com"
-             class="border border-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-white/10 transition">
-            <i class="fas fa-envelope"></i> Email Saya
+          <a href="https://github.com/vezanhd" target="_blank" class="btn-outline">
+            <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" 
-             class="bg-transparent border border-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-white/10 transition">
+          <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" target="_blank" class="btn-outline">
             📄 Download CV
           </a>
         </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">3.77</div>
+            <div class="stat-label">IPK</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Proyek</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Sertifikasi</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">85%</div>
+            <div class="stat-label">Best Accuracy</div>
+          </div>
+        </div>
       </div>
-      <div class="flex justify-center">
-        <img src="foto-profil.jpg" alt="Vezan Hidayatullah" 
-             class="w-80 h-80 object-cover rounded-3xl border-4 border-white/30 shadow-2xl">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="foto-profil.jpg" alt="Vezan Hidayatullah">
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-4xl font-bold mb-8 text-center">About Me</h2>
-    <div class="max-w-3xl mx-auto text-lg leading-relaxed text-zinc-700">
-      <p>Lulusan Teknik Informatika yang tertarik pada bidang Analisis Data dan Machine Learning. Terampil dalam pengolahan data, pengembangan model, serta pengembangan dashboard untuk pelaporan analitis dan pemantauan bisnis. Menguasai Microsoft Excel, SQL (PostgreSQL, Oracle), Python, dan  BI Tools (Tableau, Power BI). Memiliki motivasi tinggi dalam mengolah data menjadi insight yang bernilai dan siap mengaplikasikan kemampuan analitis, teknis, dan bisnis dalam lingkungan kerja yang dinamis dan berorientasi pada pertumbuhan.</p>
-    </div>
-  </section>
-
-  <!-- PENDIDIKAN -->
-  <section id="education" class="bg-white py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-10">Pendidikan</h2>
-      <div class="border-l-4 border-blue-600 pl-8">
-        <div>
-          <p class="text-blue-600 font-semibold">Universitas Lampung • Bandar Lampung</p>
-          <p class="text-xl font-bold">Sarjana Teknik Informatika • 3.77/4.00</p>
-          <p class="text-zinc-500">Agustus 2021 – Januari 2026</p>
-          <p class="mt-2 text-zinc-600">Mata kuliah relevan: Python, SQL, Data Mining, Machine Learning, Sistem Basis Data, Visualisasi Data</p>
-        </div>
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// about me</span>
+        <h2 class="section-title">Tentang Saya</h2>
       </div>
-    </div>
-  </section>
-
-  <!-- PENGALAMAN -->
-  <section id="experience" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-4xl font-bold mb-10">Pengalaman</h2>
-    <div class="space-y-12">
-
-      <!-- Pengalaman Kerja -->
-      <div>
-        <h3 class="text-2xl font-semibold text-blue-600 mb-6">Pengalaman Kerja</h3>
-        <div class="border-l-4 border-blue-600 pl-8">
-          <div class="flex gap-8">
-            <div class="min-w-fit">
-              <p class="font-semibold text-zinc-500 text-sm">Jul 2024 – Agu 2024</p>
-            </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Lulusan Teknik Informatika Universitas Lampung dengan IPK 3.77. Saya memiliki passion kuat di bidang
+            Data Analytics dan Machine Learning — dari membangun model klasifikasi deep learning hingga
+            merancang dashboard BI yang actionable.
+          </p>
+          <p>
+            Terampil dalam pengolahan data end-to-end: dari data cleaning, eksplorasi, pemodelan,
+            hingga visualisasi menggunakan tools seperti SQL, Python, Tableau, dan Power BI.
+          </p>
+          <p>
+            Aktif memanfaatkan AI tools dalam workflow sehari-hari untuk meningkatkan efisiensi dan
+            akurasi analisis. Bersedia relokasi ke seluruh wilayah Indonesia.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🎓</div>
             <div>
-              <h4 class="font-bold text-xl">Quality Assurance Intern</h4>
-              <p class="text-blue-600 font-medium">Kementerian Komunikasi dan Informatika (Kominfo) • Jakarta</p>
-              <ul class="mt-4 list-disc pl-5 text-zinc-600 text-sm space-y-1">
-                <li>Melakukan pengujian fitur Learning Management System (LMS) pada platform Digital Talent menggunakan test case berbasis spreadsheet.</li>
-                <li>Mengeksekusi pengujian terhadap berbagai skenario dan mendokumentasikan hasil uji (berhasil, gagal, atau bug).</li>
-                <li>Mengidentifikasi dan melaporkan bug kepada tim pengembang (vendor) disertai rekomendasi perbaikan yang actionable.</li>
-                <li>Berkoordinasi langsung dengan tim vendor dalam proses pengujian dan peningkatan kualitas sistem.</li>
-              </ul>
+              <div class="highlight-label">Pendidikan</div>
+              <div class="highlight-value">S1 Teknik Informatika — Unila</div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Pengalaman Organisasi -->
-      <div>
-        <h3 class="text-2xl font-semibold text-blue-600 mb-6">Pengalaman Organisasi</h3>
-        <div class="border-l-4 border-zinc-300 pl-8">
-          <div class="flex gap-8">
-            <div class="min-w-fit">
-              <p class="font-semibold text-zinc-500 text-sm">Feb 2023 – Jan 2024</p>
-            </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📍</div>
             <div>
-              <h4 class="font-bold text-xl">Anggota Sponsorship EEA 2023</h4>
-              <p class="text-zinc-600 font-medium">Himpunan Mahasiswa Teknik Elektro – Universitas Lampung</p>
-              <ul class="mt-4 list-disc pl-5 text-zinc-600 text-sm space-y-1">
-                <li>Mengajukan proposal sponsorship ke &gt;5 perusahaan</li>
-                <li>Berhasil menjalin kerja sama dengan 2 perusahaan</li>
-              </ul>
+              <div class="highlight-label">Lokasi</div>
+              <div class="highlight-value">Padang, Sumatera Barat</div>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">✈️</div>
+            <div>
+              <div class="highlight-label">Relokasi</div>
+              <div class="highlight-value">Bersedia ke seluruh Indonesia</div>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📧</div>
+            <div>
+              <div class="highlight-label">Email</div>
+              <div class="highlight-value">hidyatullahvezan@gmail.com</div>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🌐</div>
+            <div>
+              <div class="highlight-label">Bahasa</div>
+              <div class="highlight-value">Indonesia (Native) · English (Basic)</div>
             </div>
           </div>
         </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SERTIFIKASI -->
-  <section id="certifications" class="max-w-6xl mx-auto px-6 py-16">
-    <div>
-    <h2 class="text-4xl font-bold mb-10">Kursus & Sertifikasi</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white p-6 rounded-2xl shadow-sm border">
-        <p class="font-semibold">Student Bootcamp Independent Study - Data Analyst</p>
-        <p class="text-sm text-zinc-500">KarierMu • Agustus – Desember 2023</p>
-        <p class="mt-3 text-sm">9 mini project + 1 final project menggunakan SQL, Python, dan Tableau</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow-sm border">
-        <p class="font-semibold">Coding Camp 2026 Progressive: AI Engineer</p>
-        <p class="text-sm text-zinc-500">DBS Foundation x Dicoding • Februari – April 2026</p>
-        <p class="mt-3 text-sm">Machine Learning (Clustering, Regresi, Klasifikasi)</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow-sm border">
-        <p class="font-semibold">Database Design and Database Programming with SQL</p>
-        <p class="text-sm text-zinc-500">Oracle Academy • Desember 2022</p>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- PROYEK -->
-  <section id="projects" class="bg-white py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-10">Proyek Unggulan</h2>
-      <div class="grid grid-cols-2 gap-6">
-
-        <!-- Proyek 1 -->
-        <a href="https://github.com/vezanhd/klasifikasi-buku-nb-lstm" target="_blank" class="block">
-          <div class="border rounded-2xl p-6 hover:shadow-xl transition flex flex-col" style="min-height: 220px;">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-3 h-3 rounded-full bg-blue-600 shrink-0"></div>
-              <h3 class="font-bold text-base leading-tight">Klasifikasi Kategori Buku (Skripsi)</h3>
-            </div>
-            <p class="text-blue-600 text-xs mb-3 ml-6">Feb – Okt 2025 • Proyek Individu</p>
-            <p class="text-zinc-500 text-sm mb-4 ml-6 flex-1">Model klasifikasi teks Naive Bayes & LSTM pada 29.874 data buku. Akurasi terbaik 79,30%.</p>
-            <div class="flex flex-wrap gap-2 text-xs ml-6">
-              <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Python</span>
-              <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Naive Bayes</span>
-              <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">LSTM</span>
-              <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Google Colab</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Proyek 2 -->
-        <a href="https://github.com/vezanhd/klasifikasi-tanaman-cnn" target="_blank" class="block">
-          <div class="border rounded-2xl p-6 hover:shadow-xl transition flex flex-col" style="min-height: 220px;">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-3 h-3 rounded-full bg-emerald-600 shrink-0"></div>
-              <h3 class="font-bold text-base leading-tight">Klasifikasi Tanaman Uvaria grandiflora</h3>
-            </div>
-            <p class="text-emerald-600 text-xs mb-3 ml-6">Mei – Okt 2024 • Tim Penelitian</p>
-            <p class="text-zinc-500 text-sm mb-4 ml-6 flex-1">Model CNN pada 400 gambar tanaman dengan akurasi 85%. Hasil penelitian dipublikasikan dalam paper jurnal.</p>
-            <div class="flex flex-wrap gap-2 text-xs ml-6">
-              <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Python</span>
-              <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">CNN</span>
-              <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Google Colab</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Proyek 3 -->
-        <a href="https://github.com/vezanhd/final-project-data-analyst-kariermu" target="_blank" class="block">
-          <div class="border rounded-2xl p-6 hover:shadow-xl transition flex flex-col" style="min-height: 220px;">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
-              <h3 class="font-bold text-base leading-tight">Final Project Bootcamp Data Analyst</h3>
-            </div>
-            <p class="text-amber-500 text-xs mb-3 ml-6">Nov – Des 2023 • Team Leader</p>
-            <p class="text-zinc-500 text-sm mb-4 ml-6 flex-1">Analisis data 8.000+ pengguna platform pembelajaran + dashboard Tableau sebagai Team Leader.</p>
-            <div class="flex flex-wrap gap-2 text-xs ml-6">
-              <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full">Python</span>
-              <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full">Tableau</span>
-              <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full">Google Colab</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Proyek 4 - Kapita Selekta -->
-        <a href="https://github.com/vezanhd/kapita-selekta-investasi-asing" target="_blank" class="block">
-          <div class="border rounded-2xl p-6 hover:shadow-xl transition flex flex-col" style="min-height: 220px;">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-3 h-3 rounded-full bg-violet-600 shrink-0"></div>
-              <h3 class="font-bold text-base leading-tight">Dashboard Analisis Investasi Asing & Ketenagakerjaan Indonesia</h3>
-            </div>
-            <p class="text-violet-600 text-xs mb-3 ml-6">2024 • Ketua Tim</p>
-            <p class="text-zinc-500 text-sm mb-3 ml-6 flex-1">Dashboard Tableau menganalisis pengaruh investasi asing terhadap pengangguran di Indonesia 2019–2023 menggunakan data BPS.</p>
-            <div class="flex flex-wrap gap-2 text-xs mb-3 ml-6">
-              <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full">Tableau</span>
-              <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full">Data Visualization</span>
-              <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full">Excel</span>
-              <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full">Data Analysis</span>
-            </div>
-            <a href="https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal"
-               target="_blank" onclick="event.stopPropagation()"
-               class="text-xs text-violet-600 hover:underline font-medium ml-6">🔗 Lihat Live Dashboard →</a>
-          </div>
-        </a>
-
-        <!-- Proyek 5 - Tableau Retail -->
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-tableau" target="_blank" class="block">
-          <div class="border rounded-2xl p-6 hover:shadow-xl transition flex flex-col" style="min-height: 220px;">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-3 h-3 rounded-full bg-cyan-600 shrink-0"></div>
-              <h3 class="font-bold text-base leading-tight">Dashboard Penjualan & Profitabilitas Retail (Tableau)</h3>
-            </div>
-            <p class="text-cyan-600 text-xs mb-3 ml-6">2026 • Proyek Individu</p>
-            <p class="text-zinc-500 text-sm mb-3 ml-6 flex-1">Dashboard interaktif analisis penjualan retail 2023–2024. Calculated field, action filter, dan 2 dashboard terintegrasi.</p>
-            <div class="flex flex-wrap gap-2 text-xs mb-3 ml-6">
-              <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full">Tableau</span>
-              <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full">Calculated Field</span>
-              <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full">Data Visualization</span>
-              <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full">Excel</span>
-            </div>
-            <a href="https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024"
-               target="_blank" onclick="event.stopPropagation()"
-               class="text-xs text-cyan-600 hover:underline font-medium ml-6">🔗 Lihat Live Dashboard →</a>
-          </div>
-        </a>
-
-        <!-- Proyek 6 - Power BI -->
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi" target="_blank" class="block">
-          <div class="border rounded-2xl p-6 hover:shadow-xl transition flex flex-col" style="min-height: 220px;">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-3 h-3 rounded-full bg-yellow-500 shrink-0"></div>
-              <h3 class="font-bold text-base leading-tight">Dashboard Penjualan & Profitabilitas Retail (Power BI)</h3>
-            </div>
-            <p class="text-yellow-600 text-xs mb-3 ml-6">2026 • Proyek Individu</p>
-            <p class="text-zinc-500 text-sm mb-3 ml-6 flex-1">Dashboard Power BI dengan DAX untuk kalkulasi Profit Margin % dan Status Profit. 2 halaman analisis terintegrasi.</p>
-            <div class="flex flex-wrap gap-2 text-xs mb-3 ml-6">
-              <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full">Power BI</span>
-              <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full">DAX</span>
-              <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full">Data Visualization</span>
-              <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full">Excel</span>
-            </div>
-            <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix"
-               target="_blank" onclick="event.stopPropagation()"
-               class="text-xs text-yellow-600 hover:underline font-medium ml-6">📥 Download File .pbix →</a>
-          </div>
-        </a>
-
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="bg-white py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-10">Keterampilan</h2>
-      <div class="space-y-6">
-
-        <!-- Bahasa Pemrograman -->
-        <div>
-          <p class="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-3">Bahasa Pemrograman</p>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-blue-100 text-blue-700 px-5 py-2 rounded-3xl font-medium">SQL (PostgreSQL, Oracle)</span>
-            <span class="bg-blue-100 text-blue-700 px-5 py-2 rounded-3xl font-medium">Python</span>
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// technical skills</span>
+        <h2 class="section-title">Keterampilan</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-title" style="color: var(--blue);">Languages</div>
+          <div class="skill-tags">
+            <span class="tag tag-blue">SQL (PostgreSQL)</span>
+            <span class="tag tag-blue">SQL (Oracle)</span>
+            <span class="tag tag-blue">Python</span>
           </div>
         </div>
-
-        <!-- Libraries & Frameworks -->
-        <div>
-          <p class="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-3">Libraries & Frameworks</p>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl font-medium">Pandas</span>
-            <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl font-medium">NumPy</span>
-            <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl font-medium">Scikit-learn</span>
-            <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl font-medium">Matplotlib</span>
-            <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl font-medium">TensorFlow/Keras</span>
-            <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl font-medium">Flask</span>
+        <div class="skill-card">
+          <div class="skill-card-title" style="color: var(--green);">Libraries & Frameworks</div>
+          <div class="skill-tags">
+            <span class="tag tag-green">Pandas</span>
+            <span class="tag tag-green">NumPy</span>
+            <span class="tag tag-green">Scikit-learn</span>
+            <span class="tag tag-green">Matplotlib</span>
+            <span class="tag tag-green">TensorFlow/Keras</span>
+            <span class="tag tag-green">Flask</span>
           </div>
         </div>
-
-        <!-- Data & Visualization Tools -->
-        <div>
-          <p class="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-3">Data & Visualization Tools</p>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl font-medium">Tableau</span>
-            <span class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl font-medium">Power BI</span>
-            <span class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl font-medium">Microsoft Excel (Pivot Table, VLOOKUP, XLOOKUP)</span>
-            <span class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl font-medium">Google Sheets</span>
+        <div class="skill-card">
+          <div class="skill-card-title" style="color: var(--orange);">BI & Visualization Tools</div>
+          <div class="skill-tags">
+            <span class="tag tag-orange">Tableau</span>
+            <span class="tag tag-orange">Power BI</span>
+            <span class="tag tag-orange">DAX</span>
+            <span class="tag tag-orange">Microsoft Excel</span>
+            <span class="tag tag-orange">Google Sheets</span>
           </div>
         </div>
-
-        <!-- Development Tools -->
-        <div>
-          <p class="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-3">Development Tools</p>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-zinc-100 text-zinc-700 px-5 py-2 rounded-3xl font-medium">Google Colab</span>
-            <span class="bg-zinc-100 text-zinc-700 px-5 py-2 rounded-3xl font-medium">Visual Studio Code</span>
+        <div class="skill-card">
+          <div class="skill-card-title" style="color: var(--muted);">Development & Others</div>
+          <div class="skill-tags">
+            <span class="tag tag-muted">Google Colab</span>
+            <span class="tag tag-muted">VS Code</span>
+            <span class="tag tag-muted">Microsoft Office</span>
+            <span class="tag tag-muted">Google Workspace</span>
+            <span class="tag tag-muted">Canva</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Others -->
-        <div>
-          <p class="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-3">Others</p>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-zinc-100 text-zinc-700 px-5 py-2 rounded-3xl font-medium">Microsoft Office (Word, PowerPoint)</span>
-            <span class="bg-zinc-100 text-zinc-700 px-5 py-2 rounded-3xl font-medium">Google Workspace (Docs, Slides)</span>
-            <span class="bg-zinc-100 text-zinc-700 px-5 py-2 rounded-3xl font-medium">Canva</span>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// featured projects</span>
+        <h2 class="section-title">Proyek Unggulan</h2>
+      </div>
+      <div class="projects-grid">
+
+        <a href="https://github.com/vezanhd/klasifikasi-buku-nb-lstm" target="_blank" class="project-card blue">
+          <div class="project-header">
+            <div class="project-dot" style="background: var(--blue)"></div>
+            <div class="project-title">Klasifikasi Kategori Buku (Skripsi)</div>
           </div>
-        </div>
+          <div class="project-meta">Feb – Okt 2025 &nbsp;·&nbsp; Proyek Individu</div>
+          <div class="project-desc">Model klasifikasi teks menggunakan Naive Bayes &amp; LSTM pada dataset 29.874 data buku. Akurasi terbaik 79,30% dengan metode deep learning.</div>
+          <div class="project-tags">
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-blue">LSTM</span>
+            <span class="tag tag-blue">Naive Bayes</span>
+            <span class="tag tag-blue">TensorFlow</span>
+            <span class="tag tag-blue">NLP</span>
+          </div>
+          <span class="project-link" style="color: var(--blue)">View on GitHub →</span>
+        </a>
+
+        <a href="https://github.com/vezanhd/klasifikasi-tanaman-cnn" target="_blank" class="project-card green">
+          <div class="project-header">
+            <div class="project-dot" style="background: var(--green)"></div>
+            <div class="project-title">Klasifikasi Tanaman CNN — Taman Kupu-Kupu</div>
+          </div>
+          <div class="project-meta">Mei – Okt 2024 &nbsp;·&nbsp; Tim Penelitian</div>
+          <div class="project-desc">Model CNN untuk klasifikasi tanaman Uvaria grandiflora dari dataset 400 gambar (4 kelas). Akurasi 85%. Dipublikasikan dalam jurnal ilmiah.</div>
+          <div class="project-tags">
+            <span class="tag tag-green">Python</span>
+            <span class="tag tag-green">CNN</span>
+            <span class="tag tag-green">TensorFlow</span>
+            <span class="tag tag-green">Computer Vision</span>
+          </div>
+          <span class="project-link" style="color: var(--green)">View on GitHub →</span>
+        </a>
+
+        <a href="https://github.com/vezanhd/kapita-selekta-investasi-asing" target="_blank" class="project-card purple">
+          <div class="project-header">
+            <div class="project-dot" style="background: var(--purple)"></div>
+            <div class="project-title">Dashboard Analisis Investasi Asing & Ketenagakerjaan</div>
+          </div>
+          <div class="project-meta">2024 &nbsp;·&nbsp; Ketua Tim</div>
+          <div class="project-desc">Dashboard Tableau interaktif menganalisis pengaruh investasi asing terhadap pengangguran di Indonesia 2019–2023 berbasis data BPS. Mencakup peta distribusi per provinsi dan time series.</div>
+          <div class="project-tags">
+            <span class="tag tag-purple">Tableau</span>
+            <span class="tag tag-purple">Data BPS</span>
+            <span class="tag tag-purple">Excel</span>
+            <span class="tag tag-purple">Geospatial</span>
+          </div>
+          <a href="https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal"
+             target="_blank" onclick="event.stopPropagation()"
+             class="project-link" style="color: var(--purple)">🔗 Live Dashboard →</a>
+        </a>
+
+        <a href="https://github.com/vezanhd/final-project-data-analyst-kariermu" target="_blank" class="project-card orange">
+          <div class="project-header">
+            <div class="project-dot" style="background: var(--orange)"></div>
+            <div class="project-title">Final Project Bootcamp Data Analyst — KarierMu</div>
+          </div>
+          <div class="project-meta">Nov – Des 2023 &nbsp;·&nbsp; Team Leader</div>
+          <div class="project-desc">Analisis data 8.000+ pengguna platform pembelajaran menggunakan Python &amp; Tableau sebagai Team Leader. End-to-end: data cleaning, EDA, visualisasi, dan presentasi insight.</div>
+          <div class="project-tags">
+            <span class="tag tag-orange">Python</span>
+            <span class="tag tag-orange">Tableau</span>
+            <span class="tag tag-orange">Google Colab</span>
+            <span class="tag tag-orange">EDA</span>
+          </div>
+          <span class="project-link" style="color: var(--orange)">View on GitHub →</span>
+        </a>
+
+        <a href="https://github.com/vezanhd/retail-sales-dashboard-tableau" target="_blank" class="project-card cyan">
+          <div class="project-header">
+            <div class="project-dot" style="background: var(--cyan)"></div>
+            <div class="project-title">Dashboard Penjualan Retail — Tableau</div>
+          </div>
+          <div class="project-meta">2026 &nbsp;·&nbsp; Proyek Individu</div>
+          <div class="project-desc">Dashboard interaktif analisis penjualan &amp; profitabilitas retail 2023–2024. Calculated field, action filter, dan 2 dashboard terintegrasi.</div>
+          <div class="project-tags">
+            <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Tableau</span>
+            <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Calculated Field</span>
+            <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Excel</span>
+          </div>
+          <a href="https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024"
+             target="_blank" onclick="event.stopPropagation()"
+             class="project-link" style="color: var(--cyan)">🔗 Live Dashboard →</a>
+        </a>
+
+        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi" target="_blank" class="project-card yellow">
+          <div class="project-header">
+            <div class="project-dot" style="background: var(--orange)"></div>
+            <div class="project-title">Dashboard Penjualan Retail — Power BI</div>
+          </div>
+          <div class="project-meta">2026 &nbsp;·&nbsp; Proyek Individu</div>
+          <div class="project-desc">Dashboard Power BI dengan DAX untuk kalkulasi Profit Margin % dan Status Profit. 2 halaman analisis terintegrasi dengan slicer interaktif.</div>
+          <div class="project-tags">
+            <span class="tag tag-orange">Power BI</span>
+            <span class="tag tag-orange">DAX</span>
+            <span class="tag tag-orange">Excel</span>
+          </div>
+          <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix"
+             target="_blank" onclick="event.stopPropagation()"
+             class="project-link" style="color: var(--orange)">📥 Download .pbix →</a>
+        </a>
 
       </div>
     </div>
   </section>
 
-  <!-- FOOTER / CONTACT -->
-  <footer class="bg-zinc-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-2xl font-semibold mb-4">Mari berkolaborasi!</p>
-      <div class="flex justify-center gap-8 text-3xl mb-8">
-        <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:hidyatullahvezan@gmail.com"><i class="fas fa-envelope"></i></a>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// certifications</span>
+        <h2 class="section-title">Kursus & Sertifikasi</h2>
       </div>
-      <p class="text-sm text-zinc-400">© 2026 Vezan Hidayatullah • Bersedia Relokasi</p>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-left">
+            <div class="cert-icon" style="background: rgba(88,166,255,0.1);">🤖</div>
+            <div>
+              <div class="cert-name">Coding Camp 2026 Progressive: AI Engineer</div>
+              <div class="cert-org">DBS Foundation x Dicoding</div>
+            </div>
+          </div>
+          <div class="cert-date">Feb – Apr 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-left">
+            <div class="cert-icon" style="background: rgba(63,185,80,0.1);">📊</div>
+            <div>
+              <div class="cert-name">Student Bootcamp Independent Study — Data Analyst</div>
+              <div class="cert-org">KarierMu</div>
+            </div>
+          </div>
+          <div class="cert-date">Agu – Des 2023</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-left">
+            <div class="cert-icon" style="background: rgba(210,153,34,0.1);">🗄️</div>
+            <div>
+              <div class="cert-name">Database Design and Programming with SQL</div>
+              <div class="cert-org">Oracle Academy</div>
+            </div>
+          </div>
+          <div class="cert-date">Des 2022</div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// experience</span>
+        <h2 class="section-title">Pengalaman</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2024 – Agu 2024</div>
+          <div class="timeline-title">Quality Assurance Intern</div>
+          <div class="timeline-company">Kementerian Komunikasi dan Informatika (Kominfo) · Jakarta</div>
+          <ul class="timeline-list">
+            <li>Melakukan pengujian fitur LMS pada platform Digital Talent menggunakan test case berbasis spreadsheet</li>
+            <li>Mengidentifikasi dan mendokumentasikan bug, serta memberikan rekomendasi perbaikan kepada tim vendor</li>
+            <li>Berkoordinasi langsung dengan tim vendor dalam proses QA dan peningkatan kualitas sistem</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Feb 2023 – Jan 2024</div>
+          <div class="timeline-title">Anggota Sponsorship EEA 2023</div>
+          <div class="timeline-company">Himpunan Mahasiswa Teknik Elektro – Universitas Lampung</div>
+          <ul class="timeline-list">
+            <li>Mengajukan proposal sponsorship ke lebih dari 5 perusahaan</li>
+            <li>Berhasil menjalin kerja sama dengan 2 perusahaan selama event berlangsung</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">// education</span>
+        <h2 class="section-title">Pendidikan</h2>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Sarjana Teknik Informatika</div>
+          <div class="edu-school">Universitas Lampung · Bandar Lampung</div>
+          <div class="edu-period">Agustus 2021 – Januari 2026</div>
+          <div class="edu-gpa">⭐ IPK 3.77 / 4.00</div>
+          <div class="edu-courses">
+            Mata kuliah relevan: Python, SQL, Data Mining, Machine Learning, Sistem Basis Data, Visualisasi Data
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-title">Mari Berkolaborasi! 🚀</div>
+    <div class="footer-sub">Terbuka untuk peluang kerja di bidang Data Analytics & AI Engineering</div>
+    <div class="footer-links">
+      <a href="mailto:hidyatullahvezan@gmail.com" class="footer-link">
+        <i class="fas fa-envelope"></i> hidyatullahvezan@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/vezanhidayatullah" target="_blank" class="footer-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/vezanhd" target="_blank" class="footer-link">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://drive.google.com/file/d/109lBe_GecR-uQYVvwS3080Drc5fxCC1J/view?usp=sharing" target="_blank" class="footer-link">
+        📄 Download CV
+      </a>
+    </div>
+    <div class="footer-copy">© 2026 Vezan Hidayatullah · Padang, Sumatera Barat · Bersedia Relokasi</div>
   </footer>
 
 </body>
