@@ -252,34 +252,30 @@
 
     /* ── PROJECTS ── */
     #projects { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
-    .project-card {
+    .projects-list { display: flex; flex-direction: column; gap: 16px; }
+    .pcard {
       background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px;
-      display: flex; flex-direction: column; min-height: 260px;
-      transition: border-color 0.2s, transform 0.2s;
+      border-radius: 12px; overflow: hidden;
+      display: grid; grid-template-columns: 6px 1fr;
+      transition: transform 0.2s, box-shadow 0.2s;
       text-decoration: none; color: inherit;
     }
-    .project-card:hover { transform: translateY(-4px); }
-    .project-card.blue:hover { border-color: var(--blue); }
-    .project-card.green:hover { border-color: var(--green); }
-    .project-card.orange:hover { border-color: var(--orange); }
-    .project-card.purple:hover { border-color: var(--purple); }
-    .project-card.cyan:hover { border-color: var(--cyan); }
-    .project-card.yellow:hover { border-color: var(--orange); }
-
-    .project-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
-    .project-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-    .project-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; line-height: 1.3; }
-    .project-meta { font-size: 12px; color: var(--muted); margin-bottom: 12px; margin-left: 22px; }
-    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; margin-left: 22px; flex: 1; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 22px; margin-bottom: 16px; }
-    .project-link {
-      font-size: 12px; font-weight: 600; margin-left: 22px; margin-top: auto;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.2s;
+    .pcard:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .pcard-accent { width: 6px; }
+    .pcard-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 0; }
+    .pcard-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
+    .pcard-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; }
+    .pcard-meta { font-size: 11px; color: var(--muted); white-space: nowrap; margin-top: 3px; flex-shrink: 0; font-family: 'Space Mono', monospace; }
+    .pcard-desc { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 16px; margin-top: 8px; }
+    .pcard-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .pcard-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pcard-links { display: flex; gap: 12px; flex-shrink: 0; }
+    .pcard-link {
+      font-size: 12px; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 6px; border: 1px solid;
+      transition: all 0.2s; white-space: nowrap;
     }
-    .project-link:hover { gap: 10px; }
 
     /* ── CERTIFICATIONS ── */
     #certifications { background: var(--bg); }
@@ -577,114 +573,196 @@
         <span class="section-tag">// featured projects</span>
         <h2 class="section-title">Proyek Unggulan</h2>
       </div>
-      <div class="projects-grid">
+      <div class="projects-list">
 
-        <a href="https://github.com/vezanhd/klasifikasi-buku-nb-lstm" target="_blank" class="project-card blue">
-          <div class="project-header">
-            <div class="project-dot" style="background: var(--blue)"></div>
-            <div class="project-title">Klasifikasi Kategori Buku (Skripsi)</div>
+        <!-- 1 -->
+        <a href="https://github.com/vezanhd/klasifikasi-buku-nb-lstm" target="_blank" class="pcard">
+          <div class="pcard-accent" style="background: var(--blue)"></div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Klasifikasi Kategori Buku (Skripsi)</div>
+              <div class="pcard-meta">Feb – Okt 2025 · Proyek Individu</div>
+            </div>
+            <div class="pcard-desc">
+              Model klasifikasi teks menggunakan <strong>Naive Bayes &amp; LSTM</strong> pada dataset <strong>29.874 data buku</strong>.
+              Membandingkan performa ML klasik vs deep learning. Akurasi terbaik <strong>79,30%</strong>.
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag tag-blue">Python</span>
+                <span class="tag tag-blue">LSTM</span>
+                <span class="tag tag-blue">Naive Bayes</span>
+                <span class="tag tag-blue">TensorFlow/Keras</span>
+                <span class="tag tag-blue">NLP</span>
+              </div>
+              <div class="pcard-links">
+                <span class="pcard-link" style="color:var(--blue);border-color:rgba(88,166,255,0.3);background:rgba(88,166,255,0.08)">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="project-meta">Feb – Okt 2025 &nbsp;·&nbsp; Proyek Individu</div>
-          <div class="project-desc">Model klasifikasi teks menggunakan Naive Bayes &amp; LSTM pada dataset 29.874 data buku. Akurasi terbaik 79,30% dengan metode deep learning.</div>
-          <div class="project-tags">
-            <span class="tag tag-blue">Python</span>
-            <span class="tag tag-blue">LSTM</span>
-            <span class="tag tag-blue">Naive Bayes</span>
-            <span class="tag tag-blue">TensorFlow</span>
-            <span class="tag tag-blue">NLP</span>
-          </div>
-          <span class="project-link" style="color: var(--blue)">View on GitHub →</span>
         </a>
 
-        <a href="https://github.com/vezanhd/klasifikasi-tanaman-cnn" target="_blank" class="project-card green">
-          <div class="project-header">
-            <div class="project-dot" style="background: var(--green)"></div>
-            <div class="project-title">Klasifikasi Tanaman CNN — Taman Kupu-Kupu</div>
+        <!-- 2 -->
+        <a href="https://github.com/vezanhd/klasifikasi-tanaman-cnn" target="_blank" class="pcard">
+          <div class="pcard-accent" style="background: var(--green)"></div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Klasifikasi Tanaman CNN — Taman Kupu-Kupu Gita Persada</div>
+              <div class="pcard-meta">Mei – Okt 2024 · Tim Penelitian</div>
+            </div>
+            <div class="pcard-desc">
+              Model <strong>CNN (Convolutional Neural Network)</strong> untuk klasifikasi tanaman Uvaria grandiflora
+              dari dataset <strong>400 gambar (4 kelas)</strong>. Akurasi <strong>85%</strong>. Hasil penelitian dipublikasikan dalam jurnal ilmiah.
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag tag-green">Python</span>
+                <span class="tag tag-green">CNN</span>
+                <span class="tag tag-green">TensorFlow/Keras</span>
+                <span class="tag tag-green">Computer Vision</span>
+                <span class="tag tag-green">Google Colab</span>
+              </div>
+              <div class="pcard-links">
+                <span class="pcard-link" style="color:var(--green);border-color:rgba(63,185,80,0.3);background:rgba(63,185,80,0.08)">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="project-meta">Mei – Okt 2024 &nbsp;·&nbsp; Tim Penelitian</div>
-          <div class="project-desc">Model CNN untuk klasifikasi tanaman Uvaria grandiflora dari dataset 400 gambar (4 kelas). Akurasi 85%. Dipublikasikan dalam jurnal ilmiah.</div>
-          <div class="project-tags">
-            <span class="tag tag-green">Python</span>
-            <span class="tag tag-green">CNN</span>
-            <span class="tag tag-green">TensorFlow</span>
-            <span class="tag tag-green">Computer Vision</span>
-          </div>
-          <span class="project-link" style="color: var(--green)">View on GitHub →</span>
         </a>
 
-        <a href="https://github.com/vezanhd/kapita-selekta-investasi-asing" target="_blank" class="project-card purple">
-          <div class="project-header">
-            <div class="project-dot" style="background: var(--purple)"></div>
-            <div class="project-title">Dashboard Analisis Investasi Asing & Ketenagakerjaan</div>
+        <!-- 3 -->
+        <a href="https://github.com/vezanhd/kapita-selekta-investasi-asing" target="_blank" class="pcard">
+          <div class="pcard-accent" style="background: var(--purple)"></div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Dashboard Analisis Investasi Asing &amp; Ketenagakerjaan Indonesia</div>
+              <div class="pcard-meta">2024 · Ketua Tim</div>
+            </div>
+            <div class="pcard-desc">
+              Dashboard <strong>Tableau</strong> interaktif menganalisis pengaruh investasi asing terhadap pengangguran
+              di Indonesia <strong>2019–2023</strong> berbasis data BPS. Mencakup peta distribusi per provinsi, analisis komparatif, dan time series.
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag tag-purple">Tableau</span>
+                <span class="tag tag-purple">Data BPS</span>
+                <span class="tag tag-purple">Excel</span>
+                <span class="tag tag-purple">Geospatial Map</span>
+              </div>
+              <div class="pcard-links">
+                <a href="https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal"
+                   target="_blank" onclick="event.stopPropagation()"
+                   class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)">
+                  🔗 Live Dashboard
+                </a>
+                <span class="pcard-link" style="color:var(--purple);border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.08)">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="project-meta">2024 &nbsp;·&nbsp; Ketua Tim</div>
-          <div class="project-desc">Dashboard Tableau interaktif menganalisis pengaruh investasi asing terhadap pengangguran di Indonesia 2019–2023 berbasis data BPS. Mencakup peta distribusi per provinsi dan time series.</div>
-          <div class="project-tags">
-            <span class="tag tag-purple">Tableau</span>
-            <span class="tag tag-purple">Data BPS</span>
-            <span class="tag tag-purple">Excel</span>
-            <span class="tag tag-purple">Geospatial</span>
-          </div>
-          <a href="https://public.tableau.com/app/profile/kelompok.kapitaselekta/viz/TugasKapitaSelekta/Dashboardawal"
-             target="_blank" onclick="event.stopPropagation()"
-             class="project-link" style="color: var(--purple)">🔗 Live Dashboard →</a>
         </a>
 
-        <a href="https://github.com/vezanhd/final-project-data-analyst-kariermu" target="_blank" class="project-card orange">
-          <div class="project-header">
-            <div class="project-dot" style="background: var(--orange)"></div>
-            <div class="project-title">Final Project Bootcamp Data Analyst — KarierMu</div>
+        <!-- 4 -->
+        <a href="https://github.com/vezanhd/final-project-data-analyst-kariermu" target="_blank" class="pcard">
+          <div class="pcard-accent" style="background: var(--orange)"></div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Final Project Bootcamp Data Analyst — KarierMu</div>
+              <div class="pcard-meta">Nov – Des 2023 · Team Leader</div>
+            </div>
+            <div class="pcard-desc">
+              Analisis data <strong>8.000+ pengguna</strong> platform pembelajaran menggunakan Python &amp; Tableau
+              sebagai <strong>Team Leader</strong>. End-to-end: data cleaning, EDA, visualisasi, dan presentasi insight kepada audiens.
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag tag-orange">Python</span>
+                <span class="tag tag-orange">Tableau</span>
+                <span class="tag tag-orange">Google Colab</span>
+                <span class="tag tag-orange">EDA</span>
+              </div>
+              <div class="pcard-links">
+                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="project-meta">Nov – Des 2023 &nbsp;·&nbsp; Team Leader</div>
-          <div class="project-desc">Analisis data 8.000+ pengguna platform pembelajaran menggunakan Python &amp; Tableau sebagai Team Leader. End-to-end: data cleaning, EDA, visualisasi, dan presentasi insight.</div>
-          <div class="project-tags">
-            <span class="tag tag-orange">Python</span>
-            <span class="tag tag-orange">Tableau</span>
-            <span class="tag tag-orange">Google Colab</span>
-            <span class="tag tag-orange">EDA</span>
-          </div>
-          <span class="project-link" style="color: var(--orange)">View on GitHub →</span>
         </a>
 
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-tableau" target="_blank" class="project-card cyan">
-          <div class="project-header">
-            <div class="project-dot" style="background: var(--cyan)"></div>
-            <div class="project-title">Dashboard Penjualan Retail — Tableau</div>
+        <!-- 5 -->
+        <a href="https://github.com/vezanhd/retail-sales-dashboard-tableau" target="_blank" class="pcard">
+          <div class="pcard-accent" style="background: var(--cyan)"></div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Tableau</div>
+              <div class="pcard-meta">2026 · Proyek Individu</div>
+            </div>
+            <div class="pcard-desc">
+              Dashboard interaktif analisis penjualan &amp; profitabilitas retail <strong>2023–2024</strong>.
+              Menggunakan <strong>Calculated Field, Action Filter</strong>, dan 2 dashboard terintegrasi (Penjualan + Profitabilitas).
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Tableau</span>
+                <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Calculated Field</span>
+                <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Excel</span>
+              </div>
+              <div class="pcard-links">
+                <a href="https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024"
+                   target="_blank" onclick="event.stopPropagation()"
+                   class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)">
+                  🔗 Live Dashboard
+                </a>
+                <span class="pcard-link" style="color:var(--cyan);border-color:rgba(118,227,234,0.3);background:rgba(118,227,234,0.08)">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="project-meta">2026 &nbsp;·&nbsp; Proyek Individu</div>
-          <div class="project-desc">Dashboard interaktif analisis penjualan &amp; profitabilitas retail 2023–2024. Calculated field, action filter, dan 2 dashboard terintegrasi.</div>
-          <div class="project-tags">
-            <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Tableau</span>
-            <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Calculated Field</span>
-            <span class="tag" style="background:rgba(118,227,234,0.1);color:var(--cyan);border-color:rgba(118,227,234,0.3)">Excel</span>
-          </div>
-          <a href="https://public.tableau.com/app/profile/vezan.hidayatullah/viz/Dashboard_Penjualan_Retail_Tableau/FIXDashboardPenjualanRetail2023-2024"
-             target="_blank" onclick="event.stopPropagation()"
-             class="project-link" style="color: var(--cyan)">🔗 Live Dashboard →</a>
         </a>
 
-        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi" target="_blank" class="project-card yellow">
-          <div class="project-header">
-            <div class="project-dot" style="background: var(--orange)"></div>
-            <div class="project-title">Dashboard Penjualan Retail — Power BI</div>
+        <!-- 6 -->
+        <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi" target="_blank" class="pcard">
+          <div class="pcard-accent" style="background: var(--orange)"></div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Dashboard Penjualan &amp; Profitabilitas Retail — Power BI</div>
+              <div class="pcard-meta">2026 · Proyek Individu</div>
+            </div>
+            <div class="pcard-desc">
+              Dashboard <strong>Power BI</strong> dengan <strong>DAX</strong> untuk kalkulasi Profit Margin % dan Status Profit.
+              2 halaman analisis terintegrasi dengan slicer interaktif untuk filter dinamis.
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag tag-orange">Power BI</span>
+                <span class="tag tag-orange">DAX</span>
+                <span class="tag tag-orange">Excel</span>
+              </div>
+              <div class="pcard-links">
+                <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix"
+                   target="_blank" onclick="event.stopPropagation()"
+                   class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
+                  📥 Download .pbix
+                </a>
+                <span class="pcard-link" style="color:var(--orange);border-color:rgba(210,153,34,0.3);background:rgba(210,153,34,0.08)">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="project-meta">2026 &nbsp;·&nbsp; Proyek Individu</div>
-          <div class="project-desc">Dashboard Power BI dengan DAX untuk kalkulasi Profit Margin % dan Status Profit. 2 halaman analisis terintegrasi dengan slicer interaktif.</div>
-          <div class="project-tags">
-            <span class="tag tag-orange">Power BI</span>
-            <span class="tag tag-orange">DAX</span>
-            <span class="tag tag-orange">Excel</span>
-          </div>
-          <a href="https://github.com/vezanhd/retail-sales-dashboard-powerbi/raw/main/dashboard/Dashboard_Penjualan_Retail_PowerBI.pbix"
-             target="_blank" onclick="event.stopPropagation()"
-             class="project-link" style="color: var(--orange)">📥 Download .pbix →</a>
         </a>
 
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
+    <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="section-inner">
       <div class="section-header">
