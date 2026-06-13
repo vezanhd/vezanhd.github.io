@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vezan Hidayatullah | Data Analyst & ML Engineer</title>
+  <title>Vezan Hidayatullah | Data Analyst & AI/ML Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -19,6 +19,7 @@
       --teal: #39d353;
       --red: #f85149;
       --cyan: #76e3ea;
+      --pink: #f778ba;
       --text: #e6edf3;
       --muted: #8b949e;
       --card: #161b22;
@@ -249,6 +250,7 @@
     .tag-purple { background: rgba(188,140,255,0.1); color: var(--purple); border-color: rgba(188,140,255,0.3); }
     .tag-orange { background: rgba(210,153,34,0.1); color: var(--orange); border-color: rgba(210,153,34,0.3); }
     .tag-muted { background: rgba(139,148,158,0.1); color: var(--muted); border-color: rgba(139,148,158,0.3); }
+    .tag-pink { background: rgba(247,120,186,0.1); color: var(--pink); border-color: rgba(247,120,186,0.3); }
 
     /* ── PROJECTS ── */
     #projects { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -450,7 +452,7 @@
       <div>
         <div class="hero-badge">Available for Work</div>
         <h1 class="hero-name">Vezan<br><span>Hidayatullah</span></h1>
-        <p class="hero-role">Data Analyst &amp; ML Engineer</p>
+        <p class="hero-role">Data Analyst &amp; AI/ML Engineer</p>
         <p class="hero-desc">
           Fresh graduate Teknik Informatika yang passionate di bidang Data.
           Terampil mengolah data menjadi insight yang bernilai menggunakan Excel, SQL, Python, dan BI Tools.
@@ -462,7 +464,7 @@
           <a href="https://github.com/vezanhd" target="_blank" class="btn-outline">
             <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="https://drive.google.com/file/d/13TLU8JFKRHTQc4HtFB_tS3e3qkswsa8E/view?usp=sharing" target="_blank" class="btn-outline">
+          <a href="https://drive.google.com/file/d/1XndOF9XW9_Dszr0uMOsqGFP-WQiZ4fNE/view?usp=sharing" target="_blank" class="btn-outline">
             📄 Download CV
           </a>
         </div>
@@ -472,7 +474,7 @@
             <div class="stat-label">IPK</div>
           </div>
           <div class="stat">
-            <div class="stat-num">7+</div>
+            <div class="stat-num">8+</div>
             <div class="stat-label">Proyek</div>
           </div>
           <div class="stat">
@@ -504,7 +506,7 @@
         <div class="about-text">
           <p>
             Lulusan Teknik Informatika Universitas Lampung dengan IPK 3.77. Saya memiliki passion kuat di bidang
-            Data Analytics dan Machine Learning — dari membangun model klasifikasi deep learning hingga
+            Data Analytics dan AI/ML — dari membangun model klasifikasi deep learning hingga
             merancang dashboard BI yang actionable.
           </p>
           <p>
@@ -514,6 +516,11 @@
           <p>
             Aktif memanfaatkan AI tools dalam workflow sehari-hari untuk meningkatkan efisiensi dan
             akurasi analisis. Bersedia relokasi ke seluruh wilayah Indonesia.
+          </p>
+          <p>
+            Memiliki pengalaman membangun chatbot AI berbasis <strong>RAG (Retrieval-Augmented Generation)</strong>
+            menggunakan Docker, LangChain, dan LLM API — mulai dari arsitektur, integrasi vector database,
+            hingga deployment production-ready.
           </p>
         </div>
         <div class="about-highlights">
@@ -585,6 +592,7 @@
             <span class="tag tag-green">Seaborn</span>
             <span class="tag tag-green">TensorFlow/Keras</span>
             <span class="tag tag-green">Flask</span>
+            <span class="tag tag-green">LangChain</span>
           </div>
         </div>
         <div class="skill-card">
@@ -606,8 +614,19 @@
             <span class="tag tag-muted">GitHub</span>
             <span class="tag tag-muted">pgAdmin</span>
             <span class="tag tag-muted">Render</span>
+            <span class="tag tag-muted">Docker</span>
+            <span class="tag tag-muted">Hugging Face Spaces</span>
             <span class="tag tag-muted">Microsoft Office</span>
             <span class="tag tag-muted">Canva</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title" style="color: var(--pink);">AI / ML Engineering</div>
+          <div class="skill-tags">
+            <span class="tag tag-pink">RAG (Retrieval-Augmented Generation)</span>
+            <span class="tag tag-pink">LLM API (Groq, Gemini)</span>
+            <span class="tag tag-pink">Vector Database (ChromaDB)</span>
+            <span class="tag tag-pink">Prompt Engineering</span>
           </div>
         </div>
       </div>
@@ -623,7 +642,45 @@
       </div>
       <div class="projects-list">
 
-        <!-- 1 -->
+        <!-- 1 (Featured - Newest) -->
+        <div class="pcard" onclick="window.open('https://huggingface.co/spaces/vezanhd/asisten-se2026','_blank')">
+          <div class="pcard-top-bar" style="background: var(--pink)"></div>
+          <div class="pcard-img-wrap">
+            <img class="pcard-img" src="assets/images/view_asisten-se.png" alt="Asisten Virtual SE2026">
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-title">Asisten Virtual SE2026 — AI Chatbot Berbasis RAG <span style="font-size:10px;background:rgba(247,120,186,0.15);color:var(--pink);border:1px solid rgba(247,120,186,0.3);padding:2px 8px;border-radius:4px;font-family:Space Mono,monospace;font-weight:400;vertical-align:middle;">new</span></div>
+              <div class="pcard-meta">Jun 2026 · Proyek Individu</div>
+            </div>
+            <div class="pcard-desc">
+              Chatbot AI berbasis <strong>RAG (Retrieval-Augmented Generation)</strong> untuk membantu petugas lapangan Sensus Ekonomi 2026 BPS memahami pedoman teknis secara real-time. Pipeline RAG end-to-end menggunakan <strong>LangChain + ChromaDB</strong> dari 12 dokumen resmi BPS (326 chunks), terintegrasi dengan <strong>Groq LLM API</strong> dengan smart fallback & query expansion. Deployed menggunakan <strong>Docker</strong> di Hugging Face Spaces.
+            </div>
+            <div class="pcard-bottom">
+              <div class="pcard-tags">
+                <span class="tag tag-pink">Python</span>
+                <span class="tag tag-pink">Flask</span>
+                <span class="tag tag-pink">Docker</span>
+                <span class="tag tag-pink">LangChain</span>
+                <span class="tag tag-pink">RAG</span>
+                <span class="tag tag-pink">ChromaDB</span>
+                <span class="tag tag-pink">LLM API</span>
+              </div>
+              <div class="pcard-links">
+                <span class="pcard-link" style="color:var(--muted);"
+                  onclick="event.stopPropagation();window.open('https://huggingface.co/spaces/vezanhd/asisten-se2026','_blank')">
+                  🔗 Live Demo
+                </span>
+                <span class="pcard-link" style="color:var(--muted);"
+                  onclick="event.stopPropagation();window.open('https://github.com/vezanhd/chatbot-se2026','_blank')">
+                  <i class="fab fa-github"></i> GitHub
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
         <div class="pcard" onclick="window.open('https://next-anime.onrender.com','_blank')">
           <div class="pcard-top-bar" style="background: var(--red)"></div>
           <div class="pcard-img-wrap">
@@ -954,6 +1011,16 @@
       </div>
       <div class="timeline">
         <div class="timeline-item">
+          <div class="timeline-date">Jun 2026 – Agu 2026</div>
+          <div class="timeline-title">Mitra Petugas Sensus Ekonomi 2026</div>
+          <div class="timeline-company">Badan Pusat Statistik (BPS) · Kota Padang</div>
+          <ul class="timeline-list">
+            <li>Melakukan pendataan langsung ke lapangan dengan tanggung jawab sebanyak 863 usaha/keluarga/bangunan yang tersebar di 10 Satuan Lingkungan Setempat (SLS)</li>
+            <li>Mengisi kuesioner SE2026 mencakup identifikasi usaha/keluarga/bangunan sesuai pedoman resmi BPS</li>
+            <li>Melakukan wawancara langsung dengan masyarakat untuk memastikan akurasi dan kelengkapan data yang dikumpulkan</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
           <div class="timeline-date">Jul 2024 – Agu 2024</div>
           <div class="timeline-title">Quality Assurance Intern</div>
           <div class="timeline-company">Kementerian Komunikasi dan Informatika (Kominfo) · Jakarta</div>
@@ -1001,7 +1068,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-title">Mari Berkolaborasi! 🚀</div>
-    <div class="footer-sub">Terbuka untuk peluang kerja di bidang Data Analytics & ML Engineering</div>
+    <div class="footer-sub">Terbuka untuk peluang kerja di bidang Data Analytics & AI/ML Engineering</div>
     <div class="footer-links">
       <a href="mailto:hidyatullahvezan@gmail.com" class="footer-link">
         <i class="fas fa-envelope"></i> hidyatullahvezan@gmail.com
